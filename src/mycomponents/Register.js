@@ -7,7 +7,7 @@ export default function Register() {
     
         <div className="container">
     <h1 className="py-3 text-center">Register</h1>
-    <form action="registerdata.php" method="post" className="form-floating">
+    <form className="form-floating">
         <div className="form-floating">
             <input type="text" className="form-control mb-3" name="fname" id="fname" placeholder="First Name"/>
             <label for="fname">First Name</label>
