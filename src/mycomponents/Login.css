@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+    *
+    {
+      margin: 0;
+      padding: 0;
+     font-family: 'Poppins', sans-serif;
+        box-sizing:border-box;
+    }
+   
+    
+    .container{
+    
+        padding-top:30px;
+        max-width:390px;
+        overflow: hidden;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 15px 20px rgba(16, 9, 9, 0.57);
+    }
+    .row{
+        
+        
+        padding-top:40px;
+
+    }
+    #inputUsername
+    {   
+        border-radius: 10px;
+
+    }
+    #inputPassword5{
+        
+         border-radius: 10px;
+    }
+    .input-group-text
+    {
+       background-color: #d0e3dd; 
+       color:black;
+    }
+html,body{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: -webkit-linear-gradient(left, #d2e6ee, #d0e6ea, #cfe5e6, #cfe4e1, #d0e3dd);
+}
+::selection{
+  background: #d0e3dd;
+  color: black;
+}
+ .container .title-text{
+  display: flex;
+  width: 200%;
+}
+
+.container .title{
+  width: 50%;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.container .slide-controls{
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  margin: 30px 0 10px 0;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+.slide-controls .slide{
+  height: 100%;
+  width: 100%;
+
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.6s ease;
+}
+.slide-controls label.admin{
+  color: #000;
+}
+.slide-controls .slider-tab{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  z-index: 0;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(left, #d2e6ee, #d0e6ea, #cfe5e6, #cfe4e1, #d0e3dd);
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+
+#admin:checked ~ .slider-tab{
+  left: 50%;
+}
+#admin:checked ~ label.admin{
+  color: black;
+  cursor: default;
+  user-select: none;
+}
+#admin:checked ~ label.user{
+  color: #000;
+}
+#user:checked ~ label.admin{
+  color: #000;
+}
+#user:checked ~ label.user{
+  color: black;
+  cursor: default;
+  user-select: none;
+}
+.container .form-container{
+  width: 100%;
+  overflow: hidden;
+}
+
+.form-container .form-inner{
+  display: flex;
+  width: 200%;
+}
+
+.form-container .form-inner form{
+  width:50%;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+
+.form-inner form .ac-link{
+  text-align: center;
+  margin-top: 30px;
+}
+
+
+.form-inner form .ac-link a
+{
+  color:#d0e3dd ;
+  text-decoration: none;
+}
+.form-inner form .ac-link a:hover
+{
+  text-decoration: underline;
+}
+
+button
+{
+  background: -webkit-linear-gradient(left, #d2e6ee, #d0e6ea, #cfe5e6, #cfe4e1, #d0e3dd);
+  transition: all 0.4s ease;
+}
+button:hover{
+  background: -webkit-linear-gradient(right, #d2e6ee, #d0e6ea, #cfe5e6, #cfe4e1, #d0e3dd);
+}
+.btn
+{
+  color: black;
+}
+#submit:hover {
+  color: #000;
+}
+#reset:hover {
+  color: #000;
+}
+
+#register:hover {
+  color: #000;
+}
+.btn
+{
+  border-color: black;
+}
+#submit:hover
+{
+  border-color: black;
+}
+#reset:hover
+{
+  border-color: black;
+}
+#register:hover
+{
+  border-color: black;
+}
