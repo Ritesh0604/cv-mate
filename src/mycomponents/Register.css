@@ -1,9 +1,6 @@
 .container{
-    border:3px solid black;
-    border-radius: 8px;
-    width: 500px;
+    width: 70vw;
+    padding-left: 10%;
+    padding-right: 10%;
     /* visibility: hidden; */
-}
-.register{
-    
 }
