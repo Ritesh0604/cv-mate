@@ -58,10 +58,10 @@ export default function Login() {
 
                                 <div className="btn-layer">
 
-                                    <div> <button type="Submit" className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5" id="submit">Submit</button>
+                                     <button type="Submit" className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5" id="submit">Submit</button>
                                         <button type="Reset" className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5 " id="reset">Reset</button>
 
-                                    </div>
+                                    
                                     <Link to="http://localhost:3000/register">
                                         <button className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5" id="register">Register</button></Link>
 
