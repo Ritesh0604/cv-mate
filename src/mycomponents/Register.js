@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-// import './Register.css'
+import './Register.css'
 
 const disabledDates = () => {
     var today, dd, mm, yyyy;
@@ -14,21 +14,18 @@ const disabledDates = () => {
 export default function Register() {
     const [maxDate, updateMaxDate] = useState(new Date().toISOString().split("T")[0])
     console.log(maxDate)
-    //starting from here
-    
-    //ends here
     return (
         // Extra fields add karvi pdse register ma! Me mokli e  
-        <div className="container">
+        <div className="container register">
             <h1 className="py-3 text-center">Register</h1>
             <form className="form-floating">
-                <div className="form-floating">
-                    <input type="text" className="form-control mb-3" name="fname" id="fname" placeholder="First Name" />
-                    <label HTMLfor="fname">First Name</label>
-                </div>
-                <div className="form-floating">
-                    <input type="text" className="form-control mb-3" name="lname" id="lname" placeholder="Last Name" />
-                    <label HTMLfor="lname">Last Name</label>
+
+                <div className="input-group mb-3">
+                    <span className="input-group-text">Name</span>
+                    <div className="form-floating">
+                        <input type="text" className="form-control" name="uname" id="name" placeholder="FirstName " />
+                        <label HTMLfor="name">Full Name</label>
+                    </div>
                 </div>
                 <div className="row">
                     <div className="btn-group mb-3 justify-content-center" role="group">
@@ -46,7 +43,7 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text"  >DOB</span>
                     <div className="form-floating">
-                        <input id="date" type="date" className="form-control"   max={maxDate} required />
+                        <input id="date" type="date" className="form-control" max={maxDate} required />
                         <label HTMLfor="date"></label>
                     </div>
                 </div>
@@ -59,12 +56,26 @@ export default function Register() {
                     </div>
                 </div>
                 <div className="input-group mb-3">
+                    <span className="input-group-text">Phone no</span>
+                    <div className="form-floating">
+                        <input type="text" className="form-control" name="uname" id="name" placeholder="Number" pattern="[0-9]{10}" maxlength="10" />
+                        <label HTMLfor="name">Phone no</label>
+                    </div>
+                </div>
+                <div className="input-group mb-3">
+                    <span className="input-group-text">Branch</span>
+                    <div className="form-floating">
+                        <input type="text" className="form-control" name="uname" id="name" placeholder="Number" />
+                        <label HTMLfor="name">Branch</label>
+                    </div>
+                </div>
+                <div className="input-group mb-3">
                     <span className="input-group-text">.com</span>
                     <div className="form-floating">
                         <input type="email" className="form-control" name="mail" id="mail" placeholder="E-Mail" />
                         <label HTMLfor="mail">Email</label>
                     </div>
-                </div>   
+                </div>
                 <div className="input-group mb-5">
                     <span className="input-group-text">*</span>
                     <div className="form-floating">
