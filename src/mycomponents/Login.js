@@ -36,7 +36,7 @@ export default function Login() {
                             <div className="input-group mb-3 ">
                                 <span className="input-group-text">No.</span>
                                 <div className="form-floating">
-                                    <input type="Number" className="form-control" name="name" id="name" placeholder="Username" />
+                                    <input type="text" className="form-control" name="name" id="name" placeholder="Username" pattern="[0-9]{12}" minlength="12" minLength={12} maxLength={12} title="Must contain 12 digits" required/>
                                     <label htmlFor="name">Username</label>
                                 </div>
                             </div>
@@ -47,28 +47,17 @@ export default function Login() {
                                     <label htmlFor="pass">Password</label>
                                 </div>
                             </div>
-                            {/* <div id="pass">
-  <h3>Password must contain the following:</h3>
-  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-  <p id="number" class="invalid">A <b>number</b></p>
-  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-</div>     */}
                             <center>
-
-                                <div className="btn-layer">
-
-                                     <button type="Submit" className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5" id="submit">Submit</button>
-                                        <button type="Reset" className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5 " id="reset">Reset</button>
-
-                                    
-                                    <Link to="http://localhost:3000/register">
-                                        <button className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5" id="register">Register</button></Link>
-
-                                </div>
-                            </center>
-                        </div>
-                    </form>
+              <div className="btn-layer"> 
+                
+                <button type="Submit" className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5" id="submit">Login</button>
+                <button type="Reset"  className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5 " id="reset">Reset</button>
+                <Link to="http://localhost:3000/register"> <button className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5" id="register">Register</button></Link>
+                
+              </div>
+            </center>
+           </div>
+        </form>
 
 
                 </div>
@@ -78,4 +67,3 @@ export default function Login() {
 
     )
 }
-

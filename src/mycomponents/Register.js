@@ -15,7 +15,7 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text">Name</span>
                     <div className="form-floating">
-                        <input type="text" className="form-control" name="uname" id="name" placeholder="FirstName " />
+                        <input type="text" className="form-control" name="uname" id="name" placeholder="FirstName" />
                         <label HTMLfor="name">Full Name</label>
                     </div>
                 </div>
@@ -43,41 +43,41 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text">@</span>
                     <div className="form-floating">
-                        <input type="text" className="form-control" name="uname" id="name" placeholder="Username" />
+                        <input type="text" className="form-control" name="uname" id="name" placeholder="Username" title="Must contain 12 digits" pattern="[0-9]{12}" minLength={12} maxLength={12} required />
                         <label HTMLfor="name">Username</label>
                     </div>
                 </div>
                 <div className="input-group mb-3">
                     <span className="input-group-text">Phone no</span>
                     <div className="form-floating">
-                        <input type="text" className="form-control" name="uname" id="name" placeholder="Number" pattern="[0-9]{10}" maxlength="10" />
+                        <input type="text" className="form-control" name="uname" id="name" placeholder="Number" title="Must contain 10 digits" pattern="[0-9]{10}" minLength={10} maxLength={10} required/>
                         <label HTMLfor="name">Phone no</label>
                     </div>
                 </div>
                 <div className="input-group mb-3">
                     <span className="input-group-text">Branch</span>
                     <div className="form-floating">
-                        <input type="text" className="form-control" name="uname" id="name" placeholder="Number" />
-                        <label HTMLfor="name">Branch</label>
+                        <input type="text" className="form-control" name="uname" id="name" placeholder="Number" required/>
+                        <label HTMLfor="name">Branch Name</label>
                     </div>
                 </div>
                 <div className="input-group mb-3">
                     <span className="input-group-text">.com</span>
                     <div className="form-floating">
-                        <input type="email" className="form-control" name="mail" id="mail" placeholder="E-Mail" />
+                        <input type="email" className="form-control" name="mail" id="mail" placeholder="E-Mail" required/>
                         <label HTMLfor="mail">Email</label>
                     </div>
                 </div>
                 <div className="input-group mb-5">
                     <span className="input-group-text">*</span>
                     <div className="form-floating">
-                        <input type="password" className="form-control" name="pass" id="pass" placeholder="Password" pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
+                        <input type="password" className="form-control" name="pass" id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
                         <label for="pass">Password</label>
                     </div>
                 </div>
                 <div className="row text-center mb-5">
                     <div className="col">
-                        <button type="submit" className="btn btn-outline-success" >Submit</button>
+                        <button type="submit" className="btn btn-outline-success">Submit</button>
                     </div>
                     <div className="col">
                         <button type="reset" className="btn btn-outline-dark">Clear</button>
