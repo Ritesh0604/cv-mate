@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Login from './mycomponents/Login'
 import Register from './mycomponents/Register'
@@ -18,8 +17,8 @@ function App() {
       <Route path='' element={<Login/>}></Route>
         <Route path='login' element={<Login/>}></Route>
         <Route path='register' element={<Register/>}></Route>
-        <Route path='Profile' element={<Profile/>}></Route>
-        <Route path='Approval' element={<Approval/>}></Route>
+        <Route path='profile' element={<Profile/>}></Route>
+        <Route path='approval' element={<Approval/>}></Route>
         <Route path='Achivment' element={<Achivment/>}></Route>
       </Routes>
 

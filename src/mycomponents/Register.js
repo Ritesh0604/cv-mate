@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Register.css'
 
 export default function Register() {
@@ -8,6 +8,8 @@ export default function Register() {
 
     const [gender, setGender] = useState('M')
     const [branch, setBranch] = useState('IT')
+
+    const navigate = useNavigate()
 
     //#region refs
     const nameRef = useRef()
@@ -33,7 +35,7 @@ export default function Register() {
             branch: branch,
         }
 
-        fetch("http://localhost:5000/student/add_details", {
+        fetch("http://localhost:5000/student/register", {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(data)
@@ -42,11 +44,12 @@ export default function Register() {
             if (!response.ok){
                 throw new Error("Invalid enrollment number")
             }
-            else{
-                response.json()
-            }
+            response.json()
         })
-        .then(response => console.log(response))
+        .then(response => {
+            // redirect to login page
+            navigate('/login')
+        })
         .catch(err => updateError(err))
     }
     
