@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login.css';
+import './Approval.css';
 
 export default function Approval() {
     return (
