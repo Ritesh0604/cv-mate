@@ -1,17 +1,18 @@
 import React from 'react';
-import './Achievement.css';
+import './Viewapproval.css';
 
-export default function Achivement(){
+export default function Viewapproval(){
     return(
-        <div className ="achievement-container">
+        <div className ="viewapproval-container">
         <table className="table">
             <thead>
               <tr>
                 <th scope="col">SNo.</th>
-                <th scope="col">Achivement title</th>
-                <th scope="col">discription</th>
+                <th scope="col">Achievement title</th>
+                <th scope="col">description</th>
                 <th scope="col">Approved by</th>
                 <th scope="col">Action</th>
+                <th scope="col">view</th>
               </tr>
             </thead>
             <tbody>
@@ -20,13 +21,12 @@ export default function Achivement(){
                 <td>tyryyy</td>
                 <td>You need a coffee as you are a coder</td>
                 <td>jignesh vania</td>
-                <td><button className="approve btn btn-sm btn-primary ">Approve</button></td>
+                <td><button className="facultyapprove btn btn-sm btn-primary ">Approve</button></td>
+                <td><button className="viewapprove btn btn-sm btn-primary ">View</button></td>
               </tr>
               
             </tbody>
           </table>
-        </div>
-    
-        
+        </div> 
     )
 }
