@@ -55,7 +55,7 @@ export default function Register() {
     
     return (
         // Extra fields add karvi pdse register ma! Me mokli e  
-        <div className="container ">
+        <div className="reg-container">
             <h1 className="py-3 text-center">Register</h1>
             <form onSubmit={register} className="form-floating">
 

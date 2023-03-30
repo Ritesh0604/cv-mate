@@ -40,10 +40,10 @@ export default function Approval(){
     
         <div className = "row">
             <div className="col-2">
-           <label htmlFor="discription" className="form-label">Discription :</label>
+           <label htmlFor="description" className="form-label">Description :</label>
         </div>
         <div className="col-9">
-            <textarea className="form-control col-9 mt-3" id="discription" rows="3"></textarea>
+            <textarea className="form-control col-9 mt-3" id="description" rows="3"></textarea>
         </div>
         </div>
     
@@ -107,7 +107,7 @@ export default function Approval(){
             </div>
         <center>
         
-           <button type="button" className="btn btn-primary">Submit</button>
+           <button type="button" className="btn btn-primary mb-3 mt-3">Submit</button>
         
         </center>
     
