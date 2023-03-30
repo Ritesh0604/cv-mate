@@ -1,78 +1,132 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom';
 import './Register.css'
 
-
 export default function Register() {
     const [maxDate, updateMaxDate] = useState(new Date().toISOString().split("T")[0])
-    console.log(maxDate)
+    const [error, updateError] = useState("")
+
+    const [gender, setGender] = useState('M')
+    const [branch, setBranch] = useState('IT')
+
+    //#region refs
+    const nameRef = useRef()
+    const dobRef = useRef()
+    const enrNumRef = useRef()
+    const phoneNumRef = useRef()
+    const emailRef = useRef()
+    const passRef = useRef()
+    const semRef = useRef()
+    //#endregion
+
+
+    const register = (e) => {
+        e.preventDefault()
+        const data = {
+            name: nameRef.current.value,
+            email: emailRef.current.value,
+            gender: gender,
+            dob: dobRef.current.value,
+            phone_number: phoneNumRef.current.value,
+            semester: semRef.current.value,
+            enrollment_number: enrNumRef.current.value,
+            branch: branch,
+        }
+
+        fetch("http://localhost:5000/student/add_details", {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok){
+                throw new Error("Invalid enrollment number")
+            }
+            else{
+                response.json()
+            }
+        })
+        .then(response => console.log(response))
+        .catch(err => updateError(err))
+    }
+    
     return (
         // Extra fields add karvi pdse register ma! Me mokli e  
         <div className="container ">
             <h1 className="py-3 text-center">Register</h1>
-            <form className="form-floating">
+            <form onSubmit={register} className="form-floating">
 
                 <div className="input-group mb-3">
                     <span className="input-group-text">Name</span>
                     <div className="form-floating">
-                        <input type="text" className="form-control" name="uname" id="name" placeholder="FirstName" />
-                        <label HTMLfor="name">Full Name</label>
+                        <input ref={nameRef} type="text" className="form-control" name="uname" id="full_name" placeholder="Full Name" />
+                        <label htmlFor="name">Full Name</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="btn-group mb-3 justify-content-center" role="group">
-                        <input type="radio" className="btn-check" name="gender" id="gender1" value="M" />
-                        <label className="btn btn-outline-secondary " HTMLfor="gender1">Male</label>
+                        <input type="radio" className="btn-check" name="gender" id="gender1" value="M" onClick={e => setGender(e.target.value)}/>
+                        <label className="btn btn-outline-secondary " htmlFor="gender1">Male</label>
 
-                        <input type="radio" className="btn-check" name="gender" id="gender2" value="F" />
-                        <label className="btn btn-outline-secondary" HTMLfor="gender2">Female</label>
+                        <input type="radio" className="btn-check" name="gender" id="gender2" value="F" onClick={e => setGender(e.target.value)}/>
+                        <label className="btn btn-outline-secondary" htmlFor="gender2">Female</label>
 
-                        <input type="radio" className="btn-check" name="gender" id="gender3" value="O" />
-                        <label className="btn btn-outline-secondary" HTMLfor="gender3">Other</label>
+                        <input type="radio" className="btn-check" name="gender" id="gender3" value="O" onClick={e => setGender(e.target.value)}/>
+                        <label className="btn btn-outline-secondary" htmlFor="gender3">Other</label>
                     </div>
                 </div>
 
                 <div className="input-group mb-3">
                     <span className="input-group-text"  >DOB</span>
                     <div className="form-floating">
-                        <input id="date" type="date" className="form-control" max={maxDate} required />
-                        <label HTMLfor="date"></label>
+                        <input ref={dobRef} id="date" type="date" className="form-control" max={maxDate} required />
+                        <label htmlFor="date"></label>
                     </div>
                 </div>
 
                 <div className="input-group mb-3">
-                    <span className="input-group-text">@</span>
+                    <span className="input-group-text"></span>
                     <div className="form-floating">
-                        <input type="text" className="form-control" name="uname" id="name" placeholder="Username" title="Must contain 12 digits" pattern="[0-9]{12}" minLength={12} maxLength={12} required />
-                        <label HTMLfor="name">Username</label>
+                        <input ref={enrNumRef} type="text" className="form-control" name="uname" id="enrollment_number" placeholder="Enrollment Number" title="Must contain 12 digits" pattern="[0-9]{12}" minLength={12} maxLength={12} required />
+                        <label htmlFor="name">Enrollment Number</label>
+                    </div>
+                </div>
+                <div className="input-group mb-3">
+                    <span className="input-group-text"></span>
+                    <div className="form-floating">
+                        <input ref={semRef} type="text" className="form-control" name="sem" id="sem" placeholder="Enrollment Number" pattern="[1-8]{1}" minLength='1' maxLength='1' required />
+                        <label htmlFor="name">Semester</label>
                     </div>
                 </div>
                 <div className="input-group mb-3">
                     <span className="input-group-text">Phone no</span>
                     <div className="form-floating">
-                        <input type="text" className="form-control" name="uname" id="name" placeholder="Number" title="Must contain 10 digits" pattern="[0-9]{10}" minLength={10} maxLength={10} required/>
-                        <label HTMLfor="name">Phone no</label>
+                        <input ref={phoneNumRef} type="text" className="form-control" name="uname" id="phone_number" placeholder="Number" title="Must contain 10 digits" pattern="[0-9]{10}" minLength={10} maxLength={10} required/>
+                        <label htmlFor="name">Phone no</label>
                     </div>
                 </div>
                 <div className="input-group mb-3">
                     <span className="input-group-text">Branch</span>
                     <div className="form-floating">
-                        <input type="text" className="form-control" name="uname" id="name" placeholder="Number" required/>
-                        <label HTMLfor="name">Branch Name</label>
+                        {/* <input type="text" className="form-control" name="uname" id="name" placeholder="Number" required/> */}
+                        <select className='form-control' onChange={e => setBranch(e.target.value)}>
+                            <option name='IT' value="IT">Information Technology</option>
+                            <option name='CS' value="CS">Computer Science</option>
+                        </select>
                     </div>
                 </div>
                 <div className="input-group mb-3">
                     <span className="input-group-text">.com</span>
                     <div className="form-floating">
-                        <input type="email" className="form-control" name="mail" id="mail" placeholder="E-Mail" required/>
-                        <label HTMLfor="mail">Email</label>
+                        <input ref={emailRef} type="email" className="form-control" name="mail" id="mail" placeholder="E-Mail" required/>
+                        <label htmlFor="mail">Email</label>
                     </div>
                 </div>
                 <div className="input-group mb-5">
                     <span className="input-group-text">*</span>
                     <div className="form-floating">
-                        <input type="password" className="form-control" name="pass" id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
-                        <label for="pass">Password</label>
+                        <input ref={passRef} type="password" className="form-control" name="pass" id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+                        <label htmlFor="pass">Password</label>
                     </div>
                 </div>
                 <div className="row text-center mb-5">
@@ -87,7 +141,7 @@ export default function Register() {
                     </div>
                 </div>
             </form>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossOrigin="anonymous"></script>
         </div>
     );
 }

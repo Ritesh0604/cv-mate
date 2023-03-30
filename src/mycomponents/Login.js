@@ -5,7 +5,6 @@ import './Login.css';
 
 export default function Login() {
     const [user, setuser] = useState("")
-    console.log(user)
     return (
 
         <div className="container">
