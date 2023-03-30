@@ -1,14 +1,14 @@
 import React from 'react';
 import './Login.css';
 
-export default function Achivment(){
+export default function Achivement(){
     return(
-        <div className ="achivment-container">
+        <div className ="achivement-container">
         <table className="table">
             <thead>
               <tr>
                 <th scope="col">SNo.</th>
-                <th scope="col">Achivment title</th>
+                <th scope="col">Achivement title</th>
                 <th scope="col">discription</th>
                 <th scope="col">Approved by</th>
                 <th scope="col">Action</th>

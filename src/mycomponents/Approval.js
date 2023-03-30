@@ -107,7 +107,7 @@ export default function Approval(){
             </div>
         <center>
         
-           <button type="button" className="btn btn-primary">Submit</button>
+           <button type="button" className="btn btn-primary mb-3 mt-3">Submit</button>
         
         </center>
     
