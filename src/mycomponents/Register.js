@@ -114,19 +114,19 @@ export default function Register() {
                         {/* <input type="text" className="form-control" name="uname" id="name" placeholder="Number" required/> */}
                         <select className='form-control' onChange={e => setBranch(e.target.value)}>
                             <option name="" value=''>--Please choose an option--</option>
-                            <option name='Information Technology' value="IT">Information-Technology</option>
-                            <option name='Computer-Engineering' value="CE">Computer Engineering</option>
-                            <option name='Electrical-Engineering' value="EE">Electrical Engineering</option>
-                            <option name='Chemical-Engineering' value="CE">Chemical Engineering</option>
-                            <option name='Civil-Engineering' value="CE">Civil Engineering</option>
-                            <option name='Electrical-And-Communication' value="EAC">Electrical And Communication</option>
-                            <option name='IAC' value="IAC">Instrumentation And Control</option>
-                            <option name='Mechanical-Engineering' value="ME">Mechanical Engineering</option>
-                            <option name='Power-Electronics' value="PE">Power Electronics</option>
-                            <option name='Data-Science' value="DS">Data Science</option>
-                            <option name='Electronics-And-Instrumentation Engineering' value="EIE">Electronics And Instrumentation Engineering</option>
-                            <option name='Applied-Mechanics' value="AM">Applied Mechanics</option>
-                            <option name='Science-And-Humanities' value="SH">Science And Humanities</option>
+                            <option name='Information Technology' value="Information Technology">Information-Technology</option>
+                            <option name='Computer Engineering' value="Computer Engineering">Computer Engineering</option>
+                            <option name='Electrical Engineering' value="Electrical Engineering">Electrical Engineering</option>
+                            <option name='Chemical Engineering' value="Chemical Engineering">Chemical Engineering</option>
+                            <option name='Civil Engineering' value="Civil Engineering">Civil Engineering</option>
+                            <option name='Electrical And Communication' value="Electrical And Communication">Electrical And Communication</option>
+                            <option name='Instrumentation And Control' value="Instrumentation And Control">Instrumentation And Control</option>
+                            <option name='Mechanical Engineering' value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option name='Power Electronics' value="Power Electronics">Power Electronics</option>
+                            <option name='Data Science' value="Data Science">Data Science</option>
+                            <option name='Electronics And Instrumentation Engineering' value="Electronics And Instrumentation Engineering">Electronics And Instrumentation Engineering</option>
+                            <option name='Applied Mechanics' value="Applied Mechanics">Applied Mechanics</option>
+                            <option name='Science And Humanities' value="Science And Humanities">Science And Humanities</option>
                         </select>
                     </div>
                 </div>
