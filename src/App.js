@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './mycomponents/Login'
 import Register from './mycomponents/Register'
-import Achivement from './mycomponents/Achivement'
+import Achievement from './mycomponents/Achievement'
 import Profile from './mycomponents/Profile'
 import Approval from './mycomponents/Approval'
 
@@ -19,7 +19,7 @@ function App() {
       <Route path='' element={<Login/>}></Route>
         <Route path='login' element={<Login/>}></Route>
         <Route path='register' element={<Register/>}></Route>
-        <Route path='achivement' element={<Achivement/>}></Route>
+        <Route path='Achievement' element={<Achievement/>}></Route>
         <Route path='approval' element={<Approval/>}></Route>
         <Route path='Profile' element={<Profile/>}></Route>
       </Routes>
