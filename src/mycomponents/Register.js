@@ -95,14 +95,14 @@ export default function Register() {
                     <span className="input-group-text">Semester</span>
                     <div className="form-floating">
                         <input ref={semRef} type="text" className="form-control" name="sem" id="sem" placeholder="Enrollment Number" pattern="[1-8]{1}" minLength='1' maxLength='1' title="Only contain Number Between 1-8 " required />
-                        <label htmlFor="name">Sem</label>
+                        <label htmlFor="name">Sem.</label>
                     </div>
                 </div>
                 <div className="input-group mb-3">
-                    <span className="input-group-text">Phone no</span>
+                    <span className="input-group-text">Phone No.</span>
                     <div className="form-floating">
                         <input ref={phoneNumRef} type="text" className="form-control" name="uname" id="phone_number" placeholder="Number" title="Must contain 10 digits" pattern="[0-9]{10}" minLength={10} maxLength={10} required/>
-                        <label htmlFor="name">Phone no</label>
+                        <label htmlFor="name">Phone Number</label>
                     </div>
                 </div>
                 <div className="input-group mb-3">
@@ -110,6 +110,7 @@ export default function Register() {
                     <div className="form-floating">
                         {/* <input type="text" className="form-control" name="uname" id="name" placeholder="Number" required/> */}
                         <select className='form-control' onChange={e => setBranch(e.target.value)}>
+                            <option name="" value=''>--Please choose an option--</option>
                             <option name='Information Technology' value="IT">Information-Technology</option>
                             <option name='Computer-Engineering' value="CE">Computer Engineering</option>
                             <option name='Electrical-Engineering' value="EE">Electrical Engineering</option>
