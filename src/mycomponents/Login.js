@@ -24,12 +24,6 @@ export default function Login() {
                         <div className="slider-tab"></div>
                     </div>
                 </div>
-                {/* <script>
-                    document.querySelector('#register').addEventListener('click', function() {
-    
-  });
-  document.querySelector('#register').disabled = true;
-                </script> */}
                 <div className="form-inner">
                     <form action="#" className="admin">
                         <div className="row mx-2 pt-4 pb-5 mb-4">
@@ -58,12 +52,8 @@ export default function Login() {
             </center>
            </div>
         </form>
-
-
                 </div>
             </div>
         </div>
-
-
     )
 }
