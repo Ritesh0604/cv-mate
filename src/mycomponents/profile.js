@@ -13,7 +13,7 @@ export default function Profile(){
                 <ul className="list-group">
                     <li className="left-list list-group-item list-group-item-action" aria-current="true">CV Mate</li>
                     <li className="left-list list-group-item list-group-item-action active">Profile</li>
-                    <li className="left-list list-group-item list-group-item-action">Achivment</li>
+                    <li className="left-list list-group-item list-group-item-action">Achievement</li>
                     <li className="left-list list-group-item list-group-item-action">Approval</li>
                     <li className="left-list list-group-item list-group-item-action">Browse</li>
                     

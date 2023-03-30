@@ -15,7 +15,7 @@ export default function Approval(){
                 <li><option selected>major activity</option></li>
                 <li><option value="">1</option></li>
                 <li><option value="">2</option></li>
-                <li><option value = "">3</option></li>
+                <li><option value ="">3</option></li>
             </ul>
         </select>
           </div>
