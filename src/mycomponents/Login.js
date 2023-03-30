@@ -37,7 +37,7 @@ export default function Login() {
                                 <span className="input-group-text">No.</span>
                                 <div className="form-floating">
                                     <input type="Number" className="form-control" name="name" id="name" placeholder="Username" />
-                                    <label htmlFor="name">Username</label>
+                                    <label htmlFor="name">Enrollment</label>
                                 </div>
                             </div>
                             <div className="input-group mb-4">
