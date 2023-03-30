@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom';
 import './Register.css'
 
+
+
 export default function Register() {
     const [maxDate, updateMaxDate] = useState(new Date().toISOString().split("T")[0])
     const [error, updateError] = useState("")
@@ -48,6 +50,8 @@ export default function Register() {
         })
         .then(response => console.log(response))
         .catch(err => updateError(err))
+
+        
     }
     
     return (
@@ -87,11 +91,12 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text">No.</span>
                     <div className="form-floating">
-                        <input ref={enrNumRef} type="text" className="form-control" name="uname" id="enrollment_number" placeholder="Enrollment Number" title="Must contain 12 digits" pattern="[0-9]{12}" minLength={12} maxLength={12} required />
+                        <input ref={enrNumRef} type="text" className="form-control" name="uname" id="enrollment_number" placeholder="Enrollment Number"  title="Must contain 12 digits" pattern="[0-9]{12}" minLength={12} maxLength={12} required />
                         <label htmlFor="name">Enrollment Number</label>
                     </div>
                 </div>
                 <div className="input-group mb-3">
+                   
                     <span className="input-group-text">Semester</span>
                     <div className="form-floating">
                         <input ref={semRef} type="text" className="form-control" name="sem" id="sem" placeholder="Enrollment Number" pattern="[1-8]{1}" minLength='1' maxLength='1' title="Only contain Number Between 1-8 " required />
