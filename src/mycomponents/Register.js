@@ -57,7 +57,7 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text">Branch</span>
                     <div className="form-floating">
-                        <input type="text" className="form-control" name="uname" id="name" placeholder="Number" required/>
+                        <input type="text" className="form-control" name="uname" id="name" placeholder="Number" pattern="(?=.*[a-zA-]).{2,}" title="Must contain Alphabet" required/>
                         <label HTMLfor="name">Branch Name</label>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ export default function Register() {
                 <div className="input-group mb-5">
                     <span className="input-group-text">*</span>
                     <div className="form-floating">
-                        <input type="password" className="form-control" name="pass" id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+                        <input type="password" className="form-control" name="pass" id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[!@#\$%\^&\*])(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
                         <label for="pass">Password</label>
                     </div>
                 </div>

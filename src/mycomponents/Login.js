@@ -43,7 +43,7 @@ export default function Login() {
                             <div className="input-group mb-4">
                                 <span className="input-group-text">*</span>
                                 <div className="form-floating">
-                                    <input type="password" className="form-control" name="pass" id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
+                                    <input type="password" className="form-control" name="pass" id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[!@#\$%\^&\*])(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter ans one special character, and at least 8 or more characters" minLength={8} required />
                                     <label htmlFor="pass">Password</label>
                                 </div>
                             </div>
