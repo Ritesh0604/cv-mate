@@ -59,7 +59,7 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text">Name</span>
                     <div className="form-floating">
-                        <input ref={nameRef} type="text" className="form-control" name="uname" id="full_name" placeholder="Full Name" />
+                        <input ref={nameRef} type="text" className="form-control" name="uname" id="full_name" placeholder="Full Name" pattern="(?=.*[a-zA-Z]).{1,}" title="Only contain alphabets" required />
                         <label htmlFor="name">Full Name</label>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text"></span>
                     <div className="form-floating">
-                        <input ref={semRef} type="text" className="form-control" name="sem" id="sem" placeholder="Enrollment Number" pattern="[1-8]{1}" minLength='1' maxLength='1' required />
+                        <input ref={semRef} type="text" className="form-control" name="sem" id="sem" placeholder="Enrollment Number" pattern="[1-8]{1}" minLength='1' maxLength='1' title="Only contain Number Between 1-8 " required />
                         <label htmlFor="name">Semester</label>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ export default function Register() {
                 <div className="input-group mb-5">
                     <span className="input-group-text">*</span>
                     <div className="form-floating">
-                        <input ref={passRef} type="password" className="form-control" name="pass" id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+                        <input ref={passRef} type="password" className="form-control" name="pass" id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[@$!%*#?&])(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter and one special character(@$!%*#?&), and at least 8 or more characters" required/>
                         <label htmlFor="pass">Password</label>
                     </div>
                 </div>
