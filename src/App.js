@@ -3,11 +3,14 @@ import './App.css';
 import Login from './mycomponents/Login'
 import Register from './mycomponents/Register'
 import Achievement from './mycomponents/Achievement'
-import Profile from './mycomponents/Profile'
+import Profile from './mycomponents/profile'
 import Approval from './mycomponents/Approval'
 
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+
+
 
 function App() {
   const [val, updateVal] = useState("Ok")

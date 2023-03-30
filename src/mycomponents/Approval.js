@@ -3,6 +3,8 @@ import './Login.css';
 
 export default function Approval(){
     return(
+
+    
         <div className="approval-container">
         <div className="row">
         <div className = "col-2">
