@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login.css';
+import './Viewapproval.css';
 
 export default function Viewapproval(){
     return(

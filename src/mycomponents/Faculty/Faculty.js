@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login.css';
+import './Faculty.css';
 
 export default function Faculty(){
     return(

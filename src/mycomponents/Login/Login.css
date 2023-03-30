@@ -207,6 +207,7 @@ button:hover{
 
 .profile-container{
   width:100vw;
+  height : 100vh;
   padding-left: 10%;
   padding-right: 10%;
   overflow: hidden;
@@ -222,34 +223,37 @@ button:hover{
 .achievement-container
 {
   width : 100vw;
-  height: 100vh;
-  background-color:white;
+  height: 100vh; 
+  background:white;
 }
 
 .approval-container
 {
   width:100vw;
   height: 100vh;
-  background-color:white;
+  background:white;
 }
 
+.browse-container{
+  width:100vw;
+  width : 100vh;
+  background:white;
+}
 .faculty-container{
-  width:80vw;
+  width:100vw;
+  height :100vh;
   overflow: hidden;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0px 15px 20px rgba(16, 9, 9, 0.57);
+}
 
-}
-.browse-container
-{
-   width:100vw;
-   height: 100vh;
-  background-color:white;
-   
-}
 .viewapproval-container{
   width : 100vw;
-  height: 100vh;
-  background-color:white;
+  height: 100vh; 
+  background:white;
+}
+
+.point{
+  cursor: pointer;
 }

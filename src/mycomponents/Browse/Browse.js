@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login.css';
+import './Browse.css';
 
 export default function Browse(){
     return(
