@@ -7,16 +7,25 @@
         box-sizing:border-box;
     }
    
+    .login-container{
+      max-width:390px;
+      padding-top:30px;
+       
+      overflow: hidden;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 15px 20px rgba(16, 9, 9, 0.57);
+    }
     
-    .container{
+    /*.container{
     
         padding-top:30px;
-        max-width:390px;
+       
         overflow: hidden;
         background: #fff;
         border-radius: 5px;
         box-shadow: 0px 15px 20px rgba(16, 9, 9, 0.57);
-    }
+    }*/
     .row{
         
         
@@ -184,4 +193,42 @@ button:hover{
 #register:hover
 {
   border-color: black;
+}
+
+.reg-container{
+  width: 60vw;
+  padding-left: 10%;
+  padding-right: 10%;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 15px 20px rgba(16, 9, 9, 0.57);
+}
+
+.profile-container{
+  width:100vw;
+  padding-left: 10%;
+  padding-right: 10%;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 15px 20px rgba(16, 9, 9, 0.57);
+}
+
+.left-list:hover{
+  background-color: blue;
+}
+
+.Achievement-container
+{
+  width : 100vw;
+  height: 100vw;
+  background-color:white;
+}
+
+.approval-container
+{
+  width:100vw;
+  height: auto;
+  background-color:white;
 }

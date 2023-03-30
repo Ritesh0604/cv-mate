@@ -7,9 +7,9 @@ export default function Login() {
     const [user, setuser] = useState("")
     return (
 
-        <div className="container">
+        <div className="login-container">
             <div className="title-text">
-                <div className="title user">login</div>
+                <div className="title user" style={{textAlign:"center"}}><h3>login</h3></div>
 
             </div>
             <div className="form-container">
