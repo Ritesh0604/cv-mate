@@ -85,17 +85,17 @@ export default function Register() {
                 </div>
 
                 <div className="input-group mb-3">
-                    <span className="input-group-text"></span>
+                    <span className="input-group-text">No.</span>
                     <div className="form-floating">
                         <input ref={enrNumRef} type="text" className="form-control" name="uname" id="enrollment_number" placeholder="Enrollment Number" title="Must contain 12 digits" pattern="[0-9]{12}" minLength={12} maxLength={12} required />
                         <label htmlFor="name">Enrollment Number</label>
                     </div>
                 </div>
                 <div className="input-group mb-3">
-                    <span className="input-group-text"></span>
+                    <span className="input-group-text">Semester</span>
                     <div className="form-floating">
                         <input ref={semRef} type="text" className="form-control" name="sem" id="sem" placeholder="Enrollment Number" pattern="[1-8]{1}" minLength='1' maxLength='1' title="Only contain Number Between 1-8 " required />
-                        <label htmlFor="name">Semester</label>
+                        <label htmlFor="name">Sem</label>
                     </div>
                 </div>
                 <div className="input-group mb-3">
@@ -110,8 +110,19 @@ export default function Register() {
                     <div className="form-floating">
                         {/* <input type="text" className="form-control" name="uname" id="name" placeholder="Number" required/> */}
                         <select className='form-control' onChange={e => setBranch(e.target.value)}>
-                            <option name='IT' value="IT">Information Technology</option>
-                            <option name='CS' value="CS">Computer Science</option>
+                            <option name='Information Technology' value="IT">Information-Technology</option>
+                            <option name='Computer-Engineering' value="CE">Computer Engineering</option>
+                            <option name='Electrical-Engineering' value="EE">Electrical Engineering</option>
+                            <option name='Chemical-Engineering' value="CE">Chemical Engineering</option>
+                            <option name='Civil-Engineering' value="CE">Civil Engineering</option>
+                            <option name='Electrical-And-Communication' value="EAC">Electrical And Communication</option>
+                            <option name='IAC' value="IAC">Instrumentation And Control</option>
+                            <option name='Mechanical-Engineering' value="ME">Mechanical Engineering</option>
+                            <option name='Power-Electronics' value="PE">Power Electronics</option>
+                            <option name='Data-Science' value="DS">Data Science</option>
+                            <option name='Electronics-And-Instrumentation Engineering' value="EIE">Electronics And Instrumentation Engineering</option>
+                            <option name='Applied-Mechanics' value="AM">Applied Mechanics</option>
+                            <option name='Science-And-Humanities' value="SH">Science And Humanities</option>
                         </select>
                     </div>
                 </div>
@@ -119,7 +130,7 @@ export default function Register() {
                     <span className="input-group-text">.com</span>
                     <div className="form-floating">
                         <input ref={emailRef} type="email" className="form-control" name="mail" id="mail" placeholder="E-Mail" required/>
-                        <label htmlFor="mail">Email</label>
+                        <label htmlFor="mail">abc@gmail.com</label>
                     </div>
                 </div>
                 <div className="input-group mb-5">
