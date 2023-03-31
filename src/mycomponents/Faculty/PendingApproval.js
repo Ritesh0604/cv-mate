@@ -1,16 +1,16 @@
 import React from 'react';
-import './Achievement.css';
+//import './Achievement.css';
 
-export default function Achivement(){
+export default function PendingApproval(){
     return(
-        <div className ="achievement-container col-9">
+        <div className ="PendingApproval-container px-1">
         <table className="table">
             <thead>
               <tr>
-                <th scope="col">SNo.</th>
+                <th scope="col">Achievement id</th>
                 <th scope="col">Achievement title</th>
                 <th scope="col">description</th>
-                <th scope="col">Approved by</th>
+                <th scope="col">Certificate</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -19,8 +19,9 @@ export default function Achivement(){
                 <th scope="row">1</th>
                 <td>tyryyy</td>
                 <td>You need a coffee as you are a coder</td>
-                <td>jignesh vania</td>
                 <td><button className="approve btn btn-sm btn-primary ">View</button></td>
+                <td><button className="approve btn btn-sm btn-primary mx-2">Approve</button>
+                <button className="approve btn btn-sm btn-primary ">Reject</button></td>
               </tr>
               
             </tbody>
