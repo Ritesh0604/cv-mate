@@ -12,7 +12,7 @@ export default function Profile(){
     return(
         <div className="profile-container">
         <div className = "row">
-               <h1 className = "py-3 text-center" style={{color:"blue", position:"sticky"}}>VISHWAKARMA GOVERNMENT ENGINEERNING COLLEGE</h1>
+               <h1 className = "py-3 text-center" style={{color:"blue",position:"sticky"}}>VISHWAKARMA GOVERNMENT ENGINEERNING COLLEGE</h1>
         </div>
         <div className="row">
             <div className="col-3" >

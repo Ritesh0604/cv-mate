@@ -1,9 +1,9 @@
 import React from 'react';
-import './Achievement.css';
+import './Viewapproval.css';
 
-export default function Achivement(){
+export default function Viewapproval(){
     return(
-        <div className ="achievement-container">
+        <div className ="viewapproval-container">
         <table className="table">
             <thead>
               <tr>
@@ -12,6 +12,7 @@ export default function Achivement(){
                 <th scope="col">description</th>
                 <th scope="col">Approved by</th>
                 <th scope="col">Action</th>
+                <th scope="col">view</th>
               </tr>
             </thead>
             <tbody>
@@ -20,13 +21,12 @@ export default function Achivement(){
                 <td>tyryyy</td>
                 <td>You need a coffee as you are a coder</td>
                 <td>jignesh vania</td>
-                <td><button className="view btn btn-sm btn-primary ">View</button></td>
+                <td><button className="facultyapprove btn btn-sm btn-primary ">Approve</button></td>
+                <td><button className="viewapprove btn btn-sm btn-primary ">View</button></td>
               </tr>
               
             </tbody>
           </table>
-        </div>
-    
-        
+        </div> 
     )
 }
