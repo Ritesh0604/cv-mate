@@ -257,3 +257,11 @@ button:hover{
 .point{
   cursor: pointer;
 }
+.PendingApproval-container{
+  width:100vw;
+  height :100vh;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 15px 20px rgba(16, 9, 9, 0.57);
+}

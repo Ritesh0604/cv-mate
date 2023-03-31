@@ -7,7 +7,7 @@ export default function PendingApproval(){
         <table className="table">
             <thead>
               <tr>
-                <th scope="col">SNo.</th>
+                <th scope="col">Achievement id</th>
                 <th scope="col">Achievement title</th>
                 <th scope="col">description</th>
                 <th scope="col">Certificate</th>
