@@ -199,7 +199,7 @@ export default function Approval() {
                 </div>
                 <center>
 
-                    <button type="button" className="btn btn-primary mb-3 mt-3">Submit</button>
+                    <button type="button" className="submit btn btn-primary mb-3 mt-3">Submit</button>
 
                 </center>
 

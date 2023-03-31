@@ -13,11 +13,12 @@ export default function Profile(){
     return(
         <div className="profile-container">
         <div className = "row">
-               <h1 className = "pt-3 text-center" style={{color:"blue",position:"sticky"}}>VISHWAKARMA GOVERNMENT ENGINEERNING COLLEGE</h1>
+               <h1 className = "pt-3 text-center" style={{color:"blue",position:"sticky",borderBottom:"2px solid #9FA6B2",boxShadow:"0px 6px "}}>VISHWAKARMA GOVERNMENT ENGINEERNING COLLEGE</h1>
         </div>
         <div className="row">
            
-         <div className='content'><div class="navbar-nav"> 
+         <div className='content'>
+          <div class="navbar-nav"> 
          <div className="collapse-navbar-collapse" >
       
                <ul className="list-group me-auto "> 
