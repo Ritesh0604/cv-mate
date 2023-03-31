@@ -1,11 +1,21 @@
-import { useRef } from "react"
+import React, { useState } from "react";
 
-const ActivitiesForm = () => {
+const ActivityFormContext = React.createContext({
+
+})
+
+const ActivityForm = (props) => {
     // technical quize
-    const p_earnedRef = useRef()
+    const [p_earned, set_p_earned] = useState("")
 
     // skills required
-    const skillRef = useRef()
+    const [skill, set_skill] = useState("")
+
+    // internship
+    const [role, set_role] = useState("")
+
+    const [sDate, setSDate] = useState("")
+    const [eDate, setEDate] = useState("")
 
 
     const TechnicalQuize = () => {
@@ -15,7 +25,7 @@ const ActivitiesForm = () => {
                     <label htmlFor="description" className="form-label">Points earned :</label>
                 </div>
                 <div className="col-8">
-                    <input ref={p_earnedRef} type="text" className="form-control col-8" id="p_earned" rows="3"/>
+                    <input onChange={el => set_p_earned(el.target.value)} type="text" className="form-control col-8" id="p_earned" rows="3"/>
                 </div>
             </>
         )
@@ -27,19 +37,20 @@ const ActivitiesForm = () => {
                     <label htmlFor="description" className="form-label">Skills Required :</label>
                 </div>
                 <div className="col-8">
-                    <input ref={skillRef} type="text" className="form-control col-8 " id="workshop" rows="3"/>
+                    <input onChange={el => set_skill(el.target.value)} type="text" className="form-control col-8 " id="workshop" rows="3"/>
                 </div>
             </>
         )
     }
+
     const Internship = () => {
         return(
             <>
                 <div className="col-4">
-                    <label htmlFor="description" className="form-label">Role</label>
+                    <label htmlFor="role" className="form-label">Role</label>
                 </div>
                 <div className="col-8">
-                <select className = "btn btn-secondary mx-4 col-8" name ="level" id="level"> 
+                <select onChange={e => set_role(e.target.value)} className = "btn btn-secondary mx-4 col-8" name ="role" id="role"> 
                      <option value="department">Frontend</option>
                      <option value="enrollment">Backend</option>
                      <option value="Semester">Full-Stack</option>
@@ -52,7 +63,7 @@ const ActivitiesForm = () => {
                         <label htmlFor="description" className="form-label">Start date</label>
                     </div>
                     <div className="col-8">
-                        <input type="date" className="form-control col-8 " id="sdate" rows="3"/>
+                        <input onChange={e => setSDate(e.target.value)} type="date" className="form-control col-8 " id="sdate" rows="3"/>
                     </div>
                 </div>
                 <div>
@@ -60,12 +71,28 @@ const ActivitiesForm = () => {
                         <label htmlFor="description" className="form-label">End date</label>
                     </div>
                     <div className="col-8">
-                        <input type="date" className="form-control col-8" id="edate" rows="3"/>
+                        <input onChange={e => setEDate(e.target.value)} type="date" className="form-control col-8" id="edate" rows="3"/>
                     </div>
                 </div>
             </>
         )
     }
+
+    return(
+        <ActivityFormContext.Provider value={{
+            p_earnedRef: p_earned,
+            skillRef: skill,
+            role: role,
+            sDate: sDate,
+            eDate: eDate,
+            TechnicalQuize: TechnicalQuize(),
+            Workshop: Workshop(),
+            Internship: Internship()
+        }}>
+            {props.children}
+        </ActivityFormContext.Provider>
+    )
 }
 
-export default ActivitiesForm
+export default ActivityFormContext 
+export { ActivityForm }

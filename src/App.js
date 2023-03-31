@@ -2,6 +2,7 @@ import './mycomponents/Login/Login.css#cfe4e0';
 import Login from './mycomponents/Login/Login'
 import AdminLogin from './mycomponents/Admin/adminlogin'
 import AdminRegister from './mycomponents/Admin/AdminRegister'
+import AdminHome from './mycomponents/Admin/AdminHome'
 import Register from './mycomponents/Register/Register'
 import Profile from './mycomponents/Profile/profile'
 import ViewProfile from './mycomponents/Profile/ViewProfile'
@@ -14,14 +15,44 @@ import ApprovedApproval from './mycomponents/Faculty/ApprovedApproval'
 import Viewapproval from './mycomponents/Viewapproval/Viewapproval'
 import FacultyDashboard from './mycomponents/Faculty/FacultyDashboard';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-
-
+import login_status from './store/login_status';
 
 function App() {
   const [val, updateVal] = useState("Ok")
+  const ctx = useContext(login_status)
+  useEffect(() => {
+    // checking if data is already fetched
+    try{
+      const id = localStorage.getItem("id")
+      if (id === "" || id === null)
+        return
+      
+      fetch("http://localhost:5000/student/get_details", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({id: id})
+      })
+      .then(response => {
+        if (!response.ok){
+          throw new Error("Error with auto-login")
+        }
+        else{
+          return response.json()
+        }
+      })
+      .then(response => {
+        ctx.updateLoginStatus(true, "Student", response)
+      })
+      .catch(err => {
+        alert(err)
+      })
+    }
+    catch(err){
+      alert(err)
+    }
+  }, [ctx.isLoggedIn])
   
   return (
     <BrowserRouter>
@@ -31,6 +62,7 @@ function App() {
         <Route path='login' element={<Login/>}></Route>
         <Route path='adminlogin' element={<AdminLogin/>}></Route>
         <Route path='adminRegister' element={<AdminRegister/>}></Route>
+        <Route path='adminHome' element={<AdminHome/>}></Route>
         <Route path='register' element={<Register/>}></Route>
         <Route path='Achievement' element={<Achievement/>}></Route>
         <Route path='approval' element={<Approval/>}></Route>

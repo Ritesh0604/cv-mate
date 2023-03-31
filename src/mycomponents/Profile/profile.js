@@ -5,7 +5,6 @@ import Achivement from '../Achievement/Achievement';
 import Approval from '../Approval/Approval';
 import ViewProfile from './ViewProfile';
 import Browse from '../Browse/Browse';
-import ActivitiesForm from '../Approval/ActivitiesForm';
 
 export default function Profile(){
     const [state, updateState] = useState('Profile')
