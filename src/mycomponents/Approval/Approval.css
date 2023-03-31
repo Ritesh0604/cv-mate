@@ -1,3 +1,22 @@
 .approval-container{
-    width: 100%;
+    width: 90%;
+    position: relative;
+    display: inline;
+    
+}
+
+.btn{
+    background-color: white;
+}
+.input-group-text
+{
+    background-color: #d3d3d3;
+}
+.submit.btn
+{
+    background-color: #d3d3d3;
+}
+
+.submit.btn:hover{
+    color : blue;
 }

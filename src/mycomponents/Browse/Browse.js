@@ -8,7 +8,7 @@ export default function Browse(){
     <div className="row ">
     
         <div className="col-4">
-          <input type="email" className="form-control" id="inputEmail3" placeholder="E-mail"/>
+          <input type="email" className="form-control" id="inputEmail3" placeholder="Enrollment No."/>
         </div>
         
         <div className="col-6">
@@ -20,10 +20,10 @@ export default function Browse(){
                      <option value="department">department</option>
                      <select className = "btn btn-secondary mx-4" name ="level" id="level"> 
                      <option value="IT">IT</option>
-                     <option value="Compiter">Computer</option>
+                     <option value="Computer">Computer</option>
                      </select>
                      <option value="enrollment">enrollment</option>
-                     <option value="semester">Semester</option>
+                     <option value="Semester">Semester</option>
                       
                     </select>
 

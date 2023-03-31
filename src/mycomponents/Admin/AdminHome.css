@@ -1,0 +1,22 @@
+button
+{
+  background: -webkit-linear-gradient(left, #d2e6ee, #d0e6ea, #cfe5e6, #cfe4e1, #d0e3dd);
+  transition: all 0.4s ease;
+}
+button:hover{
+  background: -webkit-linear-gradient(right, #d2e6ee, #d0e6ea, #cfe5e6, #cfe4e1, #d0e3dd);
+}
+.btn
+{
+  color: black;
+}
+.btn
+{
+  border-color: black;
+}
+.adminhome-container
+{
+  width : 100vw;
+  height: 100vh; 
+  background:white;
+}
