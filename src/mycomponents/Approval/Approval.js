@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import ActivitiesForm from './ActivitiesForm';
+import React, { useContext, useState } from 'react';
+import ActivityFormContext from '../../store/activity_form';
 import './Approval.css';
 
 export default function Approval() {
+    const activityCtx = useContext(ActivityFormContext)
     const [majorActivity, setMajorActivity] = useState("")
     const [subActivity, setSubActivity] = useState([])
     const [currentActivity, setCurrentActivity] = useState("")
+
+
     const activityList = [
         {
             major: "Select Major Activity",
@@ -16,27 +19,29 @@ export default function Approval() {
         {
             major: "Technical / Research Skill",
             sub: [
-                "--Select Sub Activity--",
+                {
+                    name: "--Select Sub Activity--"
+                },
                 // "Group Discussion",
                 {
                     name: "Technical Quiz",
-                    view: ActivitiesForm.technicalQuize()
+                    view: activityCtx.TechnicalQuize
                 },
                 // "Aptitude / Reasoning",
                 // "Tech-Fest",
                 { 
                     name:"Workshop",
-                    view: ActivitiesForm.workshop()
+                    view: activityCtx.Workshop
                 },
                 // "STTP",
                 // "MOOC With Final Assessment",
                 // "Student Skill Devlopment",
                 // "Paper Presentation",
                 // "Poster",
-                {
-                    name: "Training / Internship / Professional Certification",
-                    view: ActivitiesForm.internship()
-                }
+                // {
+                //     name: "Training / Internship / Professional Certification",
+                //     view: ActivitiesForm.internship()
+                // }
                 // "Project (Non Curricullar)",
                 // "Industrial / Exhibition Visit With Report",
                 // "Consultancy Projects"
@@ -94,7 +99,6 @@ export default function Approval() {
         },
     ]
 
-
     const updateActivities = (value) => {
         setMajorActivity(value)
         activityList.map(activityList => {
@@ -106,8 +110,6 @@ export default function Approval() {
 
 
     return (
-
-
         <div className="approval-container">
             <div className="row">
                 <div className="col-5">
@@ -161,12 +163,6 @@ export default function Approval() {
                     <textarea className="form-control col-8" id="description" rows="3"></textarea>
                 </div>
             </div>
-
-            
-                
-
-                
-
                 <div className="input-group row">
                     <div className="col-4">
                         Event date :
@@ -184,7 +180,6 @@ export default function Approval() {
                         level :
                     </div>
                     <div className="dropdown col-8">
-
                         <select className="btn btn-secondary col-8" name="level" id="level">
                             <option value="Collage Level">Collage Level</option>
                             <option value="Zonal Level">Zonal Level</option>

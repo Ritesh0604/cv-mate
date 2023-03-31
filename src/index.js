@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { LoginStore } from './store/login_status';
+import { ActivityForm } from './store/activity_form';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <LoginStore>
-      <App />
+    <ActivityForm>
+      <LoginStore>
+        <App />
       </LoginStore>
+    </ActivityForm>
   </React.StrictMode>
 );
 
