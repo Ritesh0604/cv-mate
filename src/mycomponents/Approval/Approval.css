@@ -1,4 +1,5 @@
 .approval-container{
     width: auto;
-    margin: 0px;
+    height: 100%;
+    scroll-behavior: auto;
 }
