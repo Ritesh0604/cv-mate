@@ -1,0 +1,19 @@
+.navbar-nav{
+   width: 30%; 
+}
+
+.profile-container{
+    padding-bottom: 55px;
+    overflow-y: auto;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+    
+.items{
+    width: 70%;
+    margin-left: 5%;
+    overflow-x: auto;
+}
