@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login.css';
+import './Achievement.css';
 
 export default function Achivement(){
     return(
@@ -20,7 +20,7 @@ export default function Achivement(){
                 <td>tyryyy</td>
                 <td>You need a coffee as you are a coder</td>
                 <td>jignesh vania</td>
-                <td><button className="approve btn btn-sm btn-primary ">Approve</button></td>
+                <td><button className="approve btn btn-sm btn-primary ">View</button></td>
               </tr>
               
             </tbody>
