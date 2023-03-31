@@ -38,10 +38,10 @@ export default function Approval() {
                 // "Student Skill Devlopment",
                 // "Paper Presentation",
                 // "Poster",
-                // {
-                //     name: "Training / Internship / Professional Certification",
-                //     view: ActivitiesForm.internship()
-                // }
+                {
+                    name: "Training / Internship / Professional Certification",
+                    view: activityCtx.Internship
+                }
                 // "Project (Non Curricullar)",
                 // "Industrial / Exhibition Visit With Report",
                 // "Consultancy Projects"
