@@ -3,6 +3,7 @@ import React, { useState } from "react"
 const login_status = React.createContext({
     isLoggedIn: false,
     user: 'Student',
+    userData: {},
     updateLoginStatus: () => {},
     verifyLoginStatus: () => {}
 })
@@ -10,10 +11,12 @@ const login_status = React.createContext({
 export const LoginStore = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [user, setUser] = useState('Student') // Student | Faculty
+    const [userData, setUserData] = useState({})
 
-    const updateLoginStatus = (status, user) => {
+    const updateLoginStatus = (status, user, userData) => {
         setIsLoggedIn(status)
         setUser(user)
+        setUserData(userData)
     }
 
     const verifyLoginStatus = () => {
@@ -26,6 +29,7 @@ export const LoginStore = (props) => {
         <login_status.Provider value={{
             isLoggedIn: isLoggedIn,
             user: user,
+            userData: userData,
             updateLoginStatus: updateLoginStatus,
             verifyLoginStatus: verifyLoginStatus
         }}>
