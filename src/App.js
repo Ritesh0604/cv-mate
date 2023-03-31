@@ -26,9 +26,8 @@ function App() {
         <Route path='register' element={<Register/>}></Route>
         <Route path='Achievement' element={<Achievement/>}></Route>
         <Route path='approval' element={<Approval/>}></Route>
-        <Route path='Profile' element={<Profile/>}></Route>
+        <Route path='profile' element={<Profile/>}></Route>
         <Route path='faculty' element={<Faculty/>}></Route>
-        <Route path='browse' element={<Browse/>}></Route>
         <Route path='viewapproval' element={<Viewapproval/>}></Route>
       </Routes>
 

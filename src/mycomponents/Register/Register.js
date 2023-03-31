@@ -1,15 +1,16 @@
 import React, { useState, useRef } from 'react'
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Register.css'
 
 export default function Register() {
     const [maxDate, updateMaxDate] = useState(new Date().toISOString().split("T")[0])
     const [error, updateError] = useState("")
 
+    const navigate = useNavigate()
+
     const [gender, setGender] = useState('M')
     const [branch, setBranch] = useState('IT')
 
-    const navigate = useNavigate()
 
     //#region refs
     const nameRef = useRef()
@@ -33,6 +34,7 @@ export default function Register() {
             semester: semRef.current.value,
             enrollment_number: enrNumRef.current.value,
             branch: branch,
+            password: passRef.current.value
         }
 
         fetch("http://localhost:5000/student/register", {
@@ -48,7 +50,9 @@ export default function Register() {
                 response.json()
             }
         })
-        .then(response => console.log(response))
+        .then(response => {
+            navigate('/login')
+        })
         .catch(err => updateError(err))
     }
     
