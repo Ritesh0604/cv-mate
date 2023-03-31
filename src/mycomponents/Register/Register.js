@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import './Register.css'
 
 export default function Register() {
@@ -8,6 +8,8 @@ export default function Register() {
 
     const [gender, setGender] = useState('M')
     const [branch, setBranch] = useState('IT')
+
+    const navigate = useNavigate()
 
     //#region refs
     const nameRef = useRef()
@@ -33,7 +35,7 @@ export default function Register() {
             branch: branch,
         }
 
-        fetch("http://localhost:5000/student/add_details", {
+        fetch("http://localhost:5000/student/register", {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(data)
@@ -101,7 +103,7 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text">Phone No.</span>
                     <div className="form-floating">
-                        <input ref={phoneNumRef} type="text" className="form-control" name="uname" id="phone_number" placeholder="Number" title="Must contain 10 digits" pattern="[0-9]{10}" minLength={10} maxLength={10} required/>
+                        <input ref={phoneNumRef} type="text" className="form-control" name="uname" id="phone_number" placeholder="Number" title="Must contain 10 digits" pattern="[6-9]{1}[0-9]{9}" minLength={10} maxLength={10} required/>
                         <label htmlFor="name">Phone Number</label>
                     </div>
                 </div>

@@ -84,8 +84,11 @@ export default function Login() {
                 
                 <button type="Submit" className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5" id="submit">Login</button>
                 <button type="Reset"  className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5 " id="reset">Reset</button>
+                {
+                user === "Student"
+                &&
                 <Link to="http://localhost:3000/register"> <button className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5" id="register">Register</button></Link>
-                
+                }                
               </div>
             </center>
            </div>
