@@ -7,7 +7,6 @@ const api_store = React.createContext({
 
 const APIStore = (props) => {
     const addAchievement = (data) => {
-        console.log(data)
         fetch("http://localhost:5000/achievement/add_achievement", {
             method: "POST",
             headers: {"Content-Type":"application/json"},
@@ -20,7 +19,7 @@ const APIStore = (props) => {
             return response.json()
         })
         .then(response => {
-            alert(response)
+            alert("Achievements Added!")
         })
         .catch(err => {
             alert(err)
@@ -44,7 +43,6 @@ const APIStore = (props) => {
             return response
         })
         .catch(err => {
-            alert(err)
         })
 
         return achievementData

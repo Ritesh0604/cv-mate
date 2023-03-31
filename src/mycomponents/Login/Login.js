@@ -47,7 +47,7 @@ export default function Login() {
                 navigate('/facultyDashboard')
             })
             .catch(err => {
-                alert(err)
+                // alert(err)
             })
     }
     const studentLogin = async (e) => {
@@ -79,7 +79,7 @@ export default function Login() {
                 navigate('/profile')
             })
             .catch(err => {
-                alert(err)
+                // alert(err)
             })
     }
 
