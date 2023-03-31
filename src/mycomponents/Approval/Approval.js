@@ -1,8 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Approval.css';
 
 export default function Approval(){
+    const [majorActivity, setMajorActivity] = useState("")
+    const [subActivity, setSubActivity] = useState([])
+
+    const activityList = [
+        {
+            major: "Select Major Activity",
+            sub: [
+                "Select Sub Activity"
+            ]
+        },
+        {
+            major: "Technical and Research",
+            sub: [
+                "Group Discussion",
+                "Technical Quiz", 
+                "Aptitude",
+                "Tech Fest",
+                "Workshop"
+            ]
+        },
+        {
+            major:" Sports and Cultural",
+            sub:[
+                "Sports",
+                "Cultural"
+            ]
+        }
+    ]
+
+    console.log(subActivity)
+
+    const updateActivities = (value) => {
+        setMajorActivity(value)
+        activityList.map(activityList => {
+            if (activityList.major === value){
+                setSubActivity(activityList.sub)
+            }
+        })
+    }
+
+
     return(
+
+    
         <div className="approval-container">
         <div className="row">
         <div className = "col-2">
@@ -10,13 +53,18 @@ export default function Approval(){
         </div>
         <div className="dropdown col-9 mb-2">
             
-            <select className="btn btn-secondary" name ="m-activity" id="m-activity"> 
-            <ul className="dropdown-menu">
+            <select onChange={e => updateActivities(e.target.value)}  className="btn btn-secondary" name ="m-activity" id="m-activity"> 
+            {/* <ul className="dropdown-menu">
                 <li><option selected>major activity</option></li>
                 <li><option value="">1</option></li>
                 <li><option value="">2</option></li>
-                <li><option value ="">3</option></li>
-            </ul>
+                <li><option value = "">3</option></li>
+            </ul> */}
+            {
+                activityList.map(activity => {
+                    return <option value={activity.major} >{activity.major}</option>
+                })
+            }
         </select>
           </div>
        
@@ -26,12 +74,17 @@ export default function Approval(){
     
           <div className="dropdown col-9 ">
             <select className="btn btn-secondary" name ="s-activity" id="s-activity"> 
-                <ul className="dropdown-menu">
+                {/* <ul className="dropdown-menu">
                     <li><option selected>sub activity</option></li>
                     <li><option value="">1</option></li>
                     <li><option value="">2</option></li>
                     <li><option value = "">3</option></li>
-                </ul>
+                </ul> */}
+                {
+                    subActivity.map(activity => {
+                        return <option>{activity}</option>
+                    })
+                }
             </select>
              
             </div>
@@ -68,12 +121,17 @@ export default function Approval(){
                     
                     
                     <select className = "btn btn-secondary" name ="level" id="level"> 
-                        <ul className="dropdown-menu">
+                        {/* <ul className="dropdown-menu">
                      <li><option selected>level</option></li>
                       <li><option value="National">National</option></li>
                       <li><option value="state">State</option></li>
                       <li><option value = "College">College</option></li>
-                    </ul>
+                    </ul> */}
+                     <option value="Collage Level">Collage Level</option>
+                     <option value="Zonal Level">Zonal Level</option>
+                     <option value="State Level">State Level</option>
+                      <option value="National Level">National Level</option>
+                     <option value="International Level">International Level</option>
                     </select>
                   
                   </div>
@@ -85,11 +143,11 @@ export default function Approval(){
                     </div>
                 <div className="dropdown col-9 ">
                     <select className = "btn btn-secondary" name ="y-n" id="y-n"> 
-                        <ul className="dropdown-menu"> 
-                      <li><option value="National">Yes</option></li>
-                      <li><option value="state">No</option></li>
+                       
+                      <option value="National">Yes</option>
+                      <option value="state">No</option>
                       
-                    </ul>
+                 
                     </select>
                 </div>
             </div>
