@@ -1,5 +1,7 @@
-import './App.css';
+import './mycomponents/Login/Login.css#cfe4e0';
 import Login from './mycomponents/Login/Login'
+import AdminLogin from './mycomponents/Admin/adminlogin'
+import AdminRegister from './mycomponents/Admin/AdminRegister'
 import Register from './mycomponents/Register/Register'
 import Profile from './mycomponents/Profile/profile'
 import ViewProfile from './mycomponents/Profile/ViewProfile'
@@ -27,6 +29,8 @@ function App() {
       <Routes>
       <Route path='' element={<Login/>}></Route>
         <Route path='login' element={<Login/>}></Route>
+        <Route path='adminlogin' element={<AdminLogin/>}></Route>
+        <Route path='adminRegister' element={<AdminRegister/>}></Route>
         <Route path='register' element={<Register/>}></Route>
         <Route path='Achievement' element={<Achievement/>}></Route>
         <Route path='approval' element={<Approval/>}></Route>
