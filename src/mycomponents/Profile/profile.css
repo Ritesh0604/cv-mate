@@ -4,6 +4,7 @@
 
 .profile-container{
     overflow-y: auto;
+    width: 100vw;
 }
 .content{
     display: flex;

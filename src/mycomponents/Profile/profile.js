@@ -5,6 +5,7 @@ import Achivement from '../Achievement/Achievement';
 import Approval from '../Approval/Approval';
 import ViewProfile from './ViewProfile';
 import Browse from '../Browse/Browse';
+import ActivitiesForm from '../Approval/ActivitiesForm';
 
 export default function Profile(){
     const [state, updateState] = useState('Profile')
@@ -13,7 +14,7 @@ export default function Profile(){
     return(
         <div className="profile-container">
         <div className = "row">
-               <h1 className = "pt-3 text-center" style={{color:"blue",position:"sticky"}}>VISHWAKARMA GOVERNMENT ENGINEERNING COLLEGE</h1>
+               <h1 className = "pt-3 text-center" style={{color:"blue",position:"sticky",borderBottom:"2px solid #9FA6B2",width:"100%"}}>VISHWAKARMA GOVERNMENT ENGINEERNING COLLEGE</h1>
         </div>
         <div className="row">
            
@@ -32,7 +33,7 @@ export default function Profile(){
                   </div>
              </div>         
           
-
+          
           <div className='items'>
           {
             state === "Profile"
