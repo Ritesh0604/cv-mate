@@ -1,10 +1,11 @@
 .achivement-container{
-    width: 100%;
+    width: 100vw;
     position:relative;
     display:inline;
 }
 
 .table{
     width: 50vw;
-
+    position:relative;
+   display: inline;
 }

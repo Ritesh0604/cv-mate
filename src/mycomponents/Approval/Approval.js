@@ -110,12 +110,12 @@ export default function Approval() {
 
         <div className="approval-container">
             <div className="row">
-                <div className="col-2">
+                <div className="col-5">
                     Select major activity :
                 </div>
-                <div className="dropdown col-9 mb-2">
+                <div className="dropdown col-7">
 
-                    <select onChange={e => updateActivities(e.target.value)} className="btn btn-secondary" name="m-activity" id="m-activity">
+                    <select onChange={e => updateActivities(e.target.value)} className="btn btn-secondary col-7" name="m-activity" id="m-activity">
                         {
                             activityList.map(activity => {
                                 return <option value={activity.major} >{activity.major}</option>
@@ -123,13 +123,15 @@ export default function Approval() {
                         }
                     </select>
                 </div>
+            </div>
 
-                <div className="col-2">
-                    Select sub activity head :
+            <div className="row">
+                <div className="col-5">
+                    Select sub activity:
                 </div>
 
-                <div className="dropdown col-9 ">
-                    <select onChange={e => setCurrentActivity(e.currentTarget.value)} className="btn btn-secondary" name="s-activity" id="s-activity">
+                <div className="dropdown col-7 ">
+                    <select onChange={e => setCurrentActivity(e.currentTarget.value)} className="btn btn-secondary col-7 " name="s-activity" id="s-activity">
                         {
                             subActivity.map(activity => {
                                 return <option >{activity.name}</option>
@@ -149,38 +151,41 @@ export default function Approval() {
                     }
                 })
             }
-                <div className="col-3">
+            </div>
+
+            <div className='row'>
+                <div className="col-4">
                     <label htmlFor="description" className="form-label">Description :</label>
                 </div>
-                <div className="col-9">
-                    <textarea className="form-control col-9 mt-3" id="description" rows="3"></textarea>
+                <div className="col-8">
+                    <textarea className="form-control col-8" id="description" rows="3"></textarea>
                 </div>
             </div>
 
-            <div className="input-group mb-3 row">
+            
                 
 
                 
 
-                <div className="input-group mb-3 row">
-                    <div className="col-2">
+                <div className="input-group row">
+                    <div className="col-4">
                         Event date :
                     </div>
-                    <div className="col-3">
+                    <div className="col-6">
                         <div className="form-floating mt-2">
-                            <input type="date" className="form-control" name="e-date" id="date" />
+                            <input type="date" className="form-control col-6" name="e-date" id="date" />
                             <label htmlFor="e-date"></label>
                         </div>
                     </div>
                 </div>
 
                 <div className="row">
-                    <div className="level col-2">
+                    <div className="level col-4">
                         level :
                     </div>
-                    <div className="dropdown col-9">
+                    <div className="dropdown col-8">
 
-                        <select className="btn btn-secondary" name="level" id="level">
+                        <select className="btn btn-secondary col-8" name="level" id="level">
                             <option value="Collage Level">Collage Level</option>
                             <option value="Zonal Level">Zonal Level</option>
                             <option value="State Level">State Level</option>
@@ -191,12 +196,12 @@ export default function Approval() {
                     </div>
                 </div>
 
-                <div className="row mt-2">
-                    <div className="col-2">
+                <div className="row">
+                    <div className="col-4">
                         Are you winner?
                     </div>
-                    <div className="dropdown col-9 ">
-                        <select className="btn btn-secondary" name="y-n" id="y-n">
+                    <div className="dropdown col-5 ">
+                        <select className="btn btn-secondary col-5" name="y-n" id="y-n">
 
                             <option value="National">Yes</option>
                             <option value="state">No</option>
@@ -206,23 +211,23 @@ export default function Approval() {
                 </div>
 
                 <div className="row mt-2">
-                    <div className="col-2 ">
+                    <div className="col-4 ">
                         Choose file :
                     </div>
-                    <div className="col-9">
-                        <div className="input-group">
-                            <input type="file" className="form-control" id="inputGroupFile02" />
-                            <label className="input-group-text" htmlFor="inputGroupFile02">Upload</label>
+                    <div className="col-8">
+                        <div className="input-group ">
+                            <input type="file" className="form-control col-8" id="inputGroupFile02" />
+                            <label className="input-group-text " htmlFor="inputGroupFile02">Upload</label>
                         </div>
                     </div>
                 </div>
                 <center>
 
-                    <button type="button" className="submit btn btn-primary mb-3 mt-3">Submit</button>
+                    <button type="button" className="submit btn btn-primary mb-3 mt-4">Submit</button>
 
                 </center>
 
             </div>
-        </div>
+    
     )
 }
