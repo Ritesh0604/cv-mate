@@ -9,7 +9,7 @@ import Browse from './mycomponents/Browse/Browse'
 import Faculty from './mycomponents/Faculty/Faculty'
 import PendingApproval from './mycomponents/Faculty/PendingApproval'
 import Viewapproval from './mycomponents/Viewapproval/Viewapproval'
-
+import FacultyDashboard from './mycomponents/Faculty/FacultyDashboard';
 
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -35,6 +35,7 @@ function App() {
         <Route path='browse' element={<Browse/>}></Route>
         <Route path='viewapproval' element={<Viewapproval/>}></Route>
         <Route path='ViewProfile' element={<ViewProfile/>}></Route>
+        <Route path='facultydashboard' element={<FacultyDashboard/>}></Route>
       </Routes>
 
     </BrowserRouter>
