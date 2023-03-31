@@ -106,7 +106,7 @@ export default function Register() {
                         <button type="reset" className="btn btn-outline-dark">Clear</button>
                     </div>
                     <div className="col">
-                        <Link to="http://localhost:3000/login" className="btn btn-outline-info " position="static">Back</Link>
+                        <Link to="http://localhost:3000/adminHome" className="btn btn-outline-info " position="static">Back</Link>
                     </div>
                 </div>
             </form>
