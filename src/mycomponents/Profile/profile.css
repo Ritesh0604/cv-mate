@@ -3,7 +3,6 @@
 }
 
 .profile-container{
-    padding-bottom: 55px;
     overflow-y: auto;
 }
 .content{
@@ -15,5 +14,4 @@
 .items{
     width: 70%;
     margin-left: 5%;
-    overflow-x: auto;
 }

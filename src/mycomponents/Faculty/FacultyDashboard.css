@@ -17,3 +17,12 @@
 .left-list:hover {
     background-color: blue;
 }
+
+.options{
+    display: flex;
+    flex-direction: row;
+}
+
+.content{
+    width: 70%;
+}
