@@ -8,6 +8,7 @@ import Approval from './mycomponents/Approval/Approval'
 import Browse from './mycomponents/Browse/Browse'
 import Faculty from './mycomponents/Faculty/Faculty'
 import PendingApproval from './mycomponents/Faculty/PendingApproval'
+import ApprovedApproval from './mycomponents/Faculty/ApprovedApproval'
 import Viewapproval from './mycomponents/Viewapproval/Viewapproval'
 import FacultyDashboard from './mycomponents/Faculty/FacultyDashboard';
 
@@ -32,6 +33,7 @@ function App() {
         <Route path='profile' element={<Profile/>}></Route>
         <Route path='faculty' element={<Faculty/>}></Route>
         <Route path='PendingApproval' element={<PendingApproval/>}></Route>
+        <Route path='ApprovedApproval' element={<ApprovedApproval/>}></Route>
         <Route path='browse' element={<Browse/>}></Route>
         <Route path='viewapproval' element={<Viewapproval/>}></Route>
         <Route path='ViewProfile' element={<ViewProfile/>}></Route>
