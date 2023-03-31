@@ -5,7 +5,7 @@ import './Approval.css';
 export default function Approval() {
     const [majorActivity, setMajorActivity] = useState("")
     const [subActivity, setSubActivity] = useState([])
-    const [currentActivity, setCurrentActivity] = useState("")
+    const [currentActivity, setCurrentActivity] = useState("--Select Sub Activity--")
     const activityList = [
         {
             major: "Select Major Activity",
