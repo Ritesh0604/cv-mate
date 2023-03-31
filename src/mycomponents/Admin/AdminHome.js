@@ -1,8 +1,54 @@
-import React from 'react';
-import { Link} from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './AdminHome.css';
+import login_status from '../../store/login_status';
 
 export default function AdminHome() {
+    const [facultyData, addFacultyData] = useState([])
+    const loginCtx = useContext(login_status)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (loginCtx.isLoggedIn !== true || loginCtx.user !== "Admin")
+            navigate('/adminLogin')        
+        fetchFacultyData()
+    }, [facultyData])
+
+    const fetchFacultyData = async () => {
+        const data = await fetch("http://localhost:5000/faculty/get_all")
+        .then(response => {
+            if (!response.ok)
+                throw new Error("Cannot fetch faculty data")
+
+            return response.json()
+        })
+        .catch(err => [
+            // alert(err)
+        ])
+
+        addFacultyData(data)
+    }
+
+    const onDelete = async (e) => {
+        console.log(e)
+        await fetch("http://localhost:5000/faculty/delete", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email: e})
+        })
+        .then(response => {
+            if (!response.ok)
+                throw new Error("Cannot fetch faculty data")
+
+            return response.json()
+        })
+        .catch(err => [
+            // alert(err)
+        ])
+
+        fetchFacultyData()
+    }
+
     return (
         <div className="adminhome-container col-9 px-3">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end pt-3">
@@ -19,13 +65,21 @@ export default function AdminHome() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>jignesh vaniya</td>
-                        <td>jv@gmail.com</td>
-                        <td>Technical</td>
-                        <td><button className="btn btn-sm" style={{background:"red",color:"white"}}>Delete</button></td>
-                    </tr>
+                    
+                        {
+                            facultyData.map(data => {
+                                return (
+                                    <tr>
+                                    <td scope="row">1</td>
+                                    <td>{data.name}</td>
+                                    <td>{data.email}</td>
+                                    <td>{data.field}</td>
+                                    <td><button onClick={(e) => onDelete(data.email)}  className="btn btn-sm" style={{background:"red",color:"white"}}>Delete</button></td>
+                                    </tr>
+
+                                )
+                            })
+                        }
 
                 </tbody>
             </table>

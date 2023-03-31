@@ -8,14 +8,20 @@ const ActivityForm = (props) => {
     // technical quize
     const [p_earned, set_p_earned] = useState("")
 
+    const getTechnicalExtra = () => { return { points_earned: p_earned }}
+
     // skills required
     const [skill, set_skill] = useState("")
+
+    const getWorkshopExtra = () => { return {skill: skill}}
 
     // internship
     const [role, set_role] = useState("")
 
     const [sDate, setSDate] = useState("")
     const [eDate, setEDate] = useState("")
+
+    const getInternshipExtra = () => { return { role: role, sDate: sDate, eDate: eDate }}
 
 
     const TechnicalQuize = () => {
@@ -80,11 +86,11 @@ const ActivityForm = (props) => {
 
     return(
         <ActivityFormContext.Provider value={{
-            p_earnedRef: p_earned,
-            skillRef: skill,
-            role: role,
-            sDate: sDate,
-            eDate: eDate,
+            subActivityExtra: {                
+                0: getTechnicalExtra(),
+                1: getWorkshopExtra(),
+                2: getInternshipExtra(),
+            },
             TechnicalQuize: TechnicalQuize(),
             Workshop: Workshop(),
             Internship: Internship()

@@ -6,15 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { LoginStore } from './store/login_status';
 import { ActivityForm } from './store/activity_form';
+import { APIStore } from './store/api_store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ActivityForm>
-      <LoginStore>
-        <App />
-      </LoginStore>
-    </ActivityForm>
+    <APIStore>
+      <ActivityForm>
+        <LoginStore>
+          <App />
+        </LoginStore>
+      </ActivityForm>
+      </APIStore>
   </React.StrictMode>
 );
 
