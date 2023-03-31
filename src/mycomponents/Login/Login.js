@@ -1,11 +1,13 @@
 import React, { useState, useRef, useContext } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import login_status from '../../store/login_status';
 
 export default function Login() {
     const ctx = useContext(login_status)
     const [user, setuser] = useState("Student")
+
+    const navigate = useNavigate()
 
     // there is a lag switching between student and faculty
 
@@ -36,8 +38,9 @@ export default function Login() {
             // store id in local
             localStorage.setItem("id", res.id)
             ctx.updateLoginStatus(true, user)
+            
             // redirect to home page
-            alert("Logged in")
+            navigate('/profile')
         })
         .catch(err => {
             alert(err)
@@ -68,7 +71,7 @@ export default function Login() {
                             <div className="input-group mb-3 ">
                                 <span className="input-group-text">No.</span>
                                 <div className="form-floating">
-                                    <input ref={enrNoRef} type="text" className="form-control" name="name" id="name" placeholder="Username" pattern="[0-9]{12}" minlength="12" minLength={12} maxLength={12} title="Must contain 12 digits" required/>
+                                    <input ref={enrNoRef} type="text" className="form-control" name="name" id="name" placeholder="Username" pattern="[0-9]{12}" minLength="12"  title="Must contain 12 digits" minlength={12} maxLength={12} required/>
                                     <label htmlFor="name">Username</label>
                                 </div>
                             </div>
@@ -84,8 +87,11 @@ export default function Login() {
                 
                 <button type="Submit" className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5" id="submit">Login</button>
                 <button type="Reset"  className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5 " id="reset">Reset</button>
+                {
+                user === "Student"
+                &&
                 <Link to="http://localhost:3000/register"> <button className="btn btn-primary mt-4 mx-1 pt-2 pb-2 px-5" id="register">Register</button></Link>
-                
+                }                
               </div>
             </center>
            </div>

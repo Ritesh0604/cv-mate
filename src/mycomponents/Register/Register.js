@@ -1,13 +1,16 @@
 import React, { useState, useRef } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Register.css'
 
 export default function Register() {
     const [maxDate, updateMaxDate] = useState(new Date().toISOString().split("T")[0])
     const [error, updateError] = useState("")
 
+    const navigate = useNavigate()
+
     const [gender, setGender] = useState('M')
     const [branch, setBranch] = useState('IT')
+
 
     //#region refs
     const nameRef = useRef()
@@ -31,9 +34,10 @@ export default function Register() {
             semester: semRef.current.value,
             enrollment_number: enrNumRef.current.value,
             branch: branch,
+            password: passRef.current.value
         }
 
-        fetch("http://localhost:5000/student/add_details", {
+        fetch("http://localhost:5000/student/register", {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(data)
@@ -46,7 +50,9 @@ export default function Register() {
                 response.json()
             }
         })
-        .then(response => console.log(response))
+        .then(response => {
+            navigate('/login')
+        })
         .catch(err => updateError(err))
     }
     
@@ -87,7 +93,7 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text">No.</span>
                     <div className="form-floating">
-                        <input ref={enrNumRef} type="text" className="form-control" name="uname" id="enrollment_number" placeholder="Enrollment Number" title="Must contain 12 digits" pattern="[0-9]{12}" minLength={12} maxLength={12} required />
+                        <input ref={enrNumRef} type="text" className="form-control" name="uname" id="enrollment_number" placeholder="Enrollment Number" title="Must contain 12 digits" pattern="[0-9]{12}" minLength='12' maxLength='12' required />
                         <label htmlFor="name">Enrollment Number</label>
                     </div>
                 </div>
@@ -101,7 +107,7 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text">Phone No.</span>
                     <div className="form-floating">
-                        <input ref={phoneNumRef} type="text" className="form-control" name="uname" id="phone_number" placeholder="Number" title="Must contain 10 digits" pattern="[0-9]{10}" minLength={10} maxLength={10} required/>
+                        <input ref={phoneNumRef} type="text" className="form-control" name="uname" id="phone_number" placeholder="Number" title="Must contain 10 digits" pattern="[6-9]{1}[0-9]{9}" minLength='10' maxLength='12' required/>
                         <label htmlFor="name">Phone Number</label>
                     </div>
                 </div>
