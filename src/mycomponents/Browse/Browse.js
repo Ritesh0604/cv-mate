@@ -5,7 +5,7 @@ export default function Browse(){
     return(
          
         <div className ="browse-container">
-    <div className="row mt-3">
+    <div className="row ">
     
         <div className="col-4">
           <input type="email" className="form-control" id="inputEmail3" placeholder="E-mail"/>

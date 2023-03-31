@@ -1,11 +1,13 @@
 import React, { useState, useRef, useContext } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import login_status from '../../store/login_status';
 
 export default function Login() {
     const ctx = useContext(login_status)
     const [user, setuser] = useState("Student")
+
+    const navigate = useNavigate()
 
     // there is a lag switching between student and faculty
 
@@ -36,8 +38,9 @@ export default function Login() {
             // store id in local
             localStorage.setItem("id", res.id)
             ctx.updateLoginStatus(true, user)
+            
             // redirect to home page
-            alert("Logged in")
+            navigate('/profile')
         })
         .catch(err => {
             alert(err)
