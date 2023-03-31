@@ -152,27 +152,9 @@ export default function Approval() {
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className="col-2">
-                        <label htmlFor="description" className="form-label">Description :</label>
-                    </div>
-                    <div className="col-9">
-                        <textarea className="form-control col-9 mt-3" id="description" rows="3"></textarea>
-                    </div>
-                </div>
+               
 
-                <div className="input-group mb-3 row">
-                    <div className="col-2">
-                        Event date :
-                    </div>
-                    <div className="col-3">
-                        <div className="form-floating mt-2">
-                            <input type="date" className="form-control" name="e-date" id="date" />
-                            <label htmlFor="e-date"></label>
-                        </div>
-                    </div>
-                </div>
-
+                
                 <div className="row">
                     <div className="level col-2">
                         level :

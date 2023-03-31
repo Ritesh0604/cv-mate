@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Profile.css';
+import './profile.css';
 
 import Achivement from '../Achievement/Achievement';
 import Approval from '../Approval/Approval';
@@ -16,20 +16,24 @@ export default function Profile(){
                <h1 className = "pt-3 text-center" style={{color:"blue",position:"sticky"}}>VISHWAKARMA GOVERNMENT ENGINEERNING COLLEGE</h1>
         </div>
         <div className="row">
-            <div className="col-3" >
-
-                
-               <ul className="list-group">
+           
+         <div className='content'><div class="navbar-nav"> 
+         <div className="collapse-navbar-collapse" >
+      
+               <ul className="list-group me-auto "> 
                     <li className="left-list list-group-item list-group-item-action  mb-2 " aria-disabled="true">CV Mate</li>
                     </ul>
-                <ul className="list-group">
+                <ul className="list-group  me-auto">
                     <li onClick={() => updateState("Profile")} className={"point left-list list-group-item list-group-item-action " + (state=="Profile"&&"active")}>Profile</li>
-                    <li onClick={() => updateState("Achievement")} className={"point left-list list-group-item list-group-item-action " + (state=="Achievement"&&"active")}>Achievement</li>
-                    <li onClick={() => updateState("Approval")} className={"point left-list list-group-item list-group-item-action " + (state=="Approval"&&"active")}>Approval</li>
-                    <li onClick={() => updateState("Browse")}className={"point left-list list-group-item list-group-item-action" + (state=="Browse"&&"active")}>Browse</li>
+                    <li onClick={() => updateState("Achievement")} className={"point left-list list-group-item list-group-item-action  " + (state=="Achievement"&&"active")}>Achievement</li>
+                    <li onClick={() => updateState("Approval")} className={"point left-list list-group-item list-group-item-action  " + (state=="Approval"&&"active")}>Approval</li>
+                    <li onClick={() => updateState("Browse")}className={"point left-list list-group-item list-group-item-action " + (state=="Browse"&&"active")}>Browse</li>
                   </ul>
-           </div>
+                  </div>
+             </div>         
+          
 
+          <div className='items'>
           {
             state === "Profile"
             &&
@@ -50,9 +54,10 @@ export default function Profile(){
             &&
             <Browse/>
           }
+          </div>
             
         </div>
-
+        </div>
     </div>
 
     

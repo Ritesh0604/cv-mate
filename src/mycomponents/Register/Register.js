@@ -93,7 +93,7 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text">No.</span>
                     <div className="form-floating">
-                        <input ref={enrNumRef} type="text" className="form-control" name="uname" id="enrollment_number" placeholder="Enrollment Number" title="Must contain 12 digits" pattern="[0-9]{12}" minLength={12} maxLength={12} required />
+                        <input ref={enrNumRef} type="text" className="form-control" name="uname" id="enrollment_number" placeholder="Enrollment Number" title="Must contain 12 digits" pattern="[0-9]{12}" minLength='12' maxLength='12' required />
                         <label htmlFor="name">Enrollment Number</label>
                     </div>
                 </div>
@@ -107,7 +107,7 @@ export default function Register() {
                 <div className="input-group mb-3">
                     <span className="input-group-text">Phone No.</span>
                     <div className="form-floating">
-                        <input ref={phoneNumRef} type="text" className="form-control" name="uname" id="phone_number" placeholder="Number" title="Must contain 10 digits" pattern="[6-9]{1}[0-9]{9}" minLength={10} maxLength={10} required/>
+                        <input ref={phoneNumRef} type="text" className="form-control" name="uname" id="phone_number" placeholder="Number" title="Must contain 10 digits" pattern="[6-9]{1}[0-9]{9}" minLength='10' maxLength='12' required/>
                         <label htmlFor="name">Phone Number</label>
                     </div>
                 </div>
