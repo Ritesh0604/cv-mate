@@ -3,7 +3,7 @@ import './Achievement.css';
 
 export default function Achivement(){
     return(
-        <div className ="achievement-container">
+        <div className ="achievement-container col-9">
         <table className="table">
             <thead>
               <tr>
