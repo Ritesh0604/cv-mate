@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import ActivitiesForm from './ActivitiesForm';
 import './Approval.css';
 
 export default function Approval() {
     const [majorActivity, setMajorActivity] = useState("")
     const [subActivity, setSubActivity] = useState([])
-
+    const [currentActivity, setCurrentActivity] = useState("")
     const activityList = [
         {
             major: "Select Major Activity",
@@ -16,20 +17,29 @@ export default function Approval() {
             major: "Technical / Research Skill",
             sub: [
                 "--Select Sub Activity--",
-                "Group Discussion",
-                "Technical Quiz",
-                "Aptitude / Reasoning",
-                "Tech-Fest",
-                "Workshop",
-                "STTP",
-                "MOOC With Final Assessment",
-                "Student Skill Devlopment",
-                "Paper Presentation",
-                "Poster",
-                "Training / Internship / Professional Certification",
-                "Project (Non Curricullar)",
-                "Industrial / Exhibition Visit With Report",
-                "Consultancy Projects"
+                // "Group Discussion",
+                {
+                    name: "Technical Quiz",
+                    view: ActivitiesForm.technicalQuize()
+                },
+                // "Aptitude / Reasoning",
+                // "Tech-Fest",
+                { 
+                    name:"Workshop",
+                    view: ActivitiesForm.workshop()
+                },
+                // "STTP",
+                // "MOOC With Final Assessment",
+                // "Student Skill Devlopment",
+                // "Paper Presentation",
+                // "Poster",
+                {
+                    name: "Training / Internship / Professional Certification",
+                    view: ActivitiesForm.internship()
+                }
+                // "Project (Non Curricullar)",
+                // "Industrial / Exhibition Visit With Report",
+                // "Consultancy Projects"
             ]
         },
         {
@@ -84,7 +94,6 @@ export default function Approval() {
         },
     ]
 
-    console.log(subActivity)
 
     const updateActivities = (value) => {
         setMajorActivity(value)
@@ -120,10 +129,10 @@ export default function Approval() {
                 </div>
 
                 <div className="dropdown col-9 ">
-                    <select className="btn btn-secondary" name="s-activity" id="s-activity">
+                    <select onChange={e => setCurrentActivity(e.currentTarget.value)} className="btn btn-secondary" name="s-activity" id="s-activity">
                         {
                             subActivity.map(activity => {
-                                return <option>{activity}</option>
+                                return <option >{activity.name}</option>
                             })
                         }
                     </select>
@@ -133,7 +142,14 @@ export default function Approval() {
 
 
             <div className="row">
-                <div className="col-2">
+            {
+                subActivity.map(e => {
+                    if (e.name === currentActivity){
+                        return e.view
+                    }
+                })
+            }
+                <div className="col-3">
                     <label htmlFor="description" className="form-label">Description :</label>
                 </div>
                 <div className="col-9">
@@ -142,19 +158,22 @@ export default function Approval() {
             </div>
 
             <div className="input-group mb-3 row">
-                <div className="col-2">
-                    Event date :
-                </div>
-                <div className="col-3">
-                    <div className="form-floating mt-2">
-                        <input type="date" className="form-control" name="e-date" id="date" />
-                        <label htmlFor="e-date"></label>
+                
+
+                
+
+                <div className="input-group mb-3 row">
+                    <div className="col-2">
+                        Event date :
+                    </div>
+                    <div className="col-3">
+                        <div className="form-floating mt-2">
+                            <input type="date" className="form-control" name="e-date" id="date" />
+                            <label htmlFor="e-date"></label>
+                        </div>
                     </div>
                 </div>
 
-               
-
-                
                 <div className="row">
                     <div className="level col-2">
                         level :
@@ -199,7 +218,7 @@ export default function Approval() {
                 </div>
                 <center>
 
-                    <button type="button" className="btn btn-primary mb-3 mt-3">Submit</button>
+                    <button type="button" className="submit btn btn-primary mb-3 mt-3">Submit</button>
 
                 </center>
 

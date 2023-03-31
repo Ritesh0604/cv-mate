@@ -4,14 +4,34 @@
 
 .profile-container{
     overflow-y: auto;
+
+    
 }
 .content{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-    
+
 .items{
     width: 70%;
     margin-left: 5%;
+}
+.stsportal-container{
+    width: 70vw;
+}
+
+@media screen and (max-width: 768px) {
+    .content{
+        flex-wrap: wrap;
+    }
+
+    .items{
+        margin-top: 5%;
+        margin-left: 0%;
+    }
+
+    .navbar-nav{
+        width: 100%;
+    }
 }
