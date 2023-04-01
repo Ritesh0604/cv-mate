@@ -11,18 +11,18 @@ export default function Login() {
 
     // there is a lag switching between student and faculty
 
-    const enrNoRef = useRef()
+    const unameRef = useRef()
     const passRef = useRef()
 
     const studentLogin = async (e) => {
         e.preventDefault()
 
         const data = {
-            enrollment_number: enrNoRef.current.value,
+            username: unameRef.current.value,
             password: passRef.current.value
         }
 
-        await fetch("http://localhost:5000/student/login", {
+        await fetch("http://localhost:5000/admin/login", {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(data)
@@ -36,14 +36,13 @@ export default function Login() {
         })
         .then(res => {
             // store id in local
-            localStorage.setItem("id", res.id)
-            ctx.updateLoginStatus(true, user)
+            ctx.updateLoginStatus(true, user, {})
             
             // redirect to home page
-            navigate('/profile')
+            navigate('/adminHome')
         })
         .catch(err => {
-            alert(err)
+            // alert(err)
         })
     }
 
@@ -61,14 +60,14 @@ export default function Login() {
                             <div className="input-group mb-3 ">
                                 <span className="input-group-text">No.</span>
                                 <div className="form-floating">
-                                    <input ref={enrNoRef} type="text" className="form-control" name="name" id="name" placeholder="Username" pattern="[0-9]{12}" minLength="12"  title="Must contain 12 digits" minlength={12} maxLength={12} required/>
+                                    <input ref={unameRef} type="text" className="form-control" name="name" id="name" placeholder="Username" required/>
                                     <label htmlFor="name">Username</label>
                                 </div>
                             </div>
                             <div className="input-group mb-4">
                                 <span className="input-group-text">*</span>
                                 <div className="form-floating">
-                                    <input ref={passRef} type="password" className="form-control" name="pass" id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[!@#\$%\^&\*])(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter and one special character (!@#\$%\^&\*]), and at least 8 or more characters" minLength={8} required />
+                                    <input ref={passRef} type="password" className="form-control" name="pass" id="pass" placeholder="Password" required />
                                     <label htmlFor="pass">Password</label>
                                 </div>
                             </div>

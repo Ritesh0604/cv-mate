@@ -15,14 +15,44 @@ import ApprovedApproval from './mycomponents/Faculty/ApprovedApproval'
 import Viewapproval from './mycomponents/Viewapproval/Viewapproval'
 import FacultyDashboard from './mycomponents/Faculty/FacultyDashboard';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-
-
+import login_status from './store/login_status';
 
 function App() {
   const [val, updateVal] = useState("Ok")
+  const ctx = useContext(login_status)
+  useEffect(() => {
+    // checking if data is already fetched
+    try{
+      const id = localStorage.getItem("id")
+      if (id === "" || id === null)
+        return
+      
+      fetch("http://localhost:5000/student/get_details", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({id: id})
+      })
+      .then(response => {
+        if (!response.ok){
+          throw new Error("Error with auto-login")
+        }
+        else{
+          return response.json()
+        }
+      })
+      .then(response => {
+        ctx.updateLoginStatus(true, "Student", response)
+      })
+      .catch(err => {
+        alert(err)
+      })
+    }
+    catch(err){
+      alert(err)
+    }
+  }, [ctx.isLoggedIn])
   
   return (
     <BrowserRouter>

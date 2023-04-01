@@ -8,18 +8,11 @@ export default function Register() {
 
     const navigate = useNavigate()
 
-    const [gender, setGender] = useState('M')
-    const [branch, setBranch] = useState('IT')
-
-
     //#region refs
     const nameRef = useRef()
-    const dobRef = useRef()
-    const enrNumRef = useRef()
-    const phoneNumRef = useRef()
+    const fieldRef = useRef()
     const emailRef = useRef()
     const passRef = useRef()
-    const semRef = useRef()
     //#endregion
 
 
@@ -28,16 +21,11 @@ export default function Register() {
         const data = {
             name: nameRef.current.value,
             email: emailRef.current.value,
-            gender: gender,
-            dob: dobRef.current.value,
-            phone_number: phoneNumRef.current.value,
-            semester: semRef.current.value,
-            enrollment_number: enrNumRef.current.value,
-            branch: branch,
+            field: fieldRef.current.value,
             password: passRef.current.value
         }
 
-        fetch("http://localhost:5000/student/register", {
+        fetch("http://localhost:5000/faculty/register", {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(data)
@@ -51,7 +39,7 @@ export default function Register() {
             }
         })
         .then(response => {
-            navigate('/login')
+            navigate('/adminHome')
         })
         .catch(err => updateError(err))
     }
@@ -60,7 +48,7 @@ export default function Register() {
         // Extra fields add karvi pdse register ma! Me mokli e  
         <div className="Admin-reg-container">
             <h1 className="py-3 text-center">Register</h1>
-            <form /*onSubmit={register}*/ className="form-floating">
+            <form onSubmit={register} className="form-floating">
 
                 <div className="input-group mb-3">
                     <span className="input-group-text">Name</span>
@@ -74,7 +62,7 @@ export default function Register() {
                     <span className="input-group-text">Branch</span>
                     <div className="form-floating">
                         {/* <input type="text" className="form-control" name="uname" id="name" placeholder="Number" required/> */}
-                        <select className='form-control' onChange={e => setBranch(e.target.value)}>
+                        <select ref={fieldRef} className='form-control'>
                             <option name="" value=''>--Please choose an option--</option>
                             <option name='Technical / Research Skill' value="Technical / Research Skill">Technical / Research Skill</option>
                             <option name='Sports And Cultural' value="Sports And Cultural">Sports And Cultural</option>
@@ -100,7 +88,7 @@ export default function Register() {
                 </div>
                 <div className="row text-center mb-5">
                     <div className="col">
-                        <button type="Add" className="btn btn-outline-success">Add</button>
+                        <button type="submit" className="btn btn-outline-success">Add</button>
                     </div>
                     <div className="col">
                         <button type="reset" className="btn btn-outline-dark">Clear</button>
