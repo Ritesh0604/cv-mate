@@ -5,7 +5,8 @@ const login_status = React.createContext({
     user: 'Student',
     userData: {},
     updateLoginStatus: () => {},
-    verifyLoginStatus: () => {}
+    verifyLoginStatus: () => {},
+    logOut: () => {}
 })
 
 export const LoginStore = (props) => {
@@ -17,6 +18,13 @@ export const LoginStore = (props) => {
         setIsLoggedIn(status)
         setUser(user)
         setUserData(userData)
+    }
+
+    const logOut = () => {
+        setIsLoggedIn(false)
+        setUser("")
+        window.history.pushState({}, "", "http://localhost:3000/login")
+        window.location.reload()
     }
 
     const verifyLoginStatus = () => {
@@ -31,7 +39,8 @@ export const LoginStore = (props) => {
             user: user,
             userData: userData,
             updateLoginStatus: updateLoginStatus,
-            verifyLoginStatus: verifyLoginStatus
+            verifyLoginStatus: verifyLoginStatus,
+            logOut: logOut
         }}>
             {props.children}
         </login_status.Provider>

@@ -39,7 +39,7 @@ export default function Achivement(){
                         <td  scope="col">{data.data.title}</td>
                         <td  scope="col">{data.data.description}</td>
                         <td  scope="col">{data.data.faculty_name}</td>
-                        <td  scope="col">Pending</td>
+                        <td  scope="col">{data.data.status}</td>
                         <td  scope="col"><button className='btn btn-primary'>View</button></td>
                       </tr>
                     )

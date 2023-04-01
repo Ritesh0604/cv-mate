@@ -30,7 +30,7 @@ function App() {
     try{
       const id = localStorage.getItem("id")
       if (id === "" || id === null)
-        return
+        return 
       
       fetch("http://localhost:5000/student/get_details", {
         method: "POST",
@@ -47,6 +47,7 @@ function App() {
       })
       .then(response => {
         ctx.updateLoginStatus(true, "Student", response)
+        window.history.pushState({},  "", "http://localhost:3000/profile")
       })
       .catch(async err => {
         await fetch("http://localhost:5000/faculty/verify_id", {
@@ -58,20 +59,17 @@ function App() {
           if (!response.ok){
             throw new Error("Error with auto-login")
           }
-          else if (ctx.user !== "Faculty"){
-            // var link = document.createElement('a');
-            // link.href = "http://localhost:3000/login";
-            // document.body.appendChild(link);
-            // link.click();
-            window.history.pushState({},  "", "http://localhost:3000/login")
-          }
+          
           return response.json()
         })
         .then(resp => {
-          console.log(resp)
-          console.log(ctx.user)
+          ctx.updateLoginStatus(true, "Faculty", {})
+          window.history.pushState({},  "", "http://localhost:3000/facultyDashboard")
         })
         .catch(err => {
+          localStorage.removeItem("id")
+          window.history.pushState({},  "", "http://localhost:3000/login")
+          window.location.reload()
         })
       })
     }

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Faculty from './Faculty';
 import './FacultyDashboard.css';
 import PendingApproval from './PendingApproval';
+import login_status from '../../store/login_status';
 
 export default function FacultyDashboard(){
     const [state, updateState] = useState("Profile")
+    const loginCtx = useContext(login_status)
+
     return(
             
     <div className="faculty_d_container">
@@ -17,8 +20,7 @@ export default function FacultyDashboard(){
                 <ul className="list-group">
                     <li onClick={() => updateState("Profile")} className={"point left-list list-group-item list-group-item-action " + (state==="Profile"&&"active")}>Profile</li>
                     <li onClick={() => updateState("Pending")} className={"point left-list list-group-item list-group-item-action " + (state==="Pending"&&"active")}>Pending Approval</li>
-                    <li className="point left-list list-group-item list-group-item-action ">Approved Approval</li>
-                    <li className="point left-list list-group-item list-group-item-action">Log out</li>
+                    <li onClick={() => loginCtx.logOut()} className="point left-list list-group-item list-group-item-action">Log out</li>
                 </ul>
             </nav>
         </div>

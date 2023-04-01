@@ -23,6 +23,20 @@ export default function PendingApproval() {
     addApproval(data)
   }
 
+  const updateStatus = async (id, status) => {
+    const data = await fetch("http://localhost:5000/achievement/update_status",{
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({ id: id, status: status})
+    })
+    .then(res => {
+      return res.json()
+    })
+    .catch(err => {
+      alert(err)
+    })
+  }
+
   useEffect(() => {
     fetchApproval()
   }, [addApproval])
@@ -48,7 +62,7 @@ export default function PendingApproval() {
                   <td>{a.title}</td>
                   <td>{a.description}</td>
                   <td><button className="approve btn btn-sm btn-primary ">View</button></td>
-                  <td><button className="approve btn btn-sm btn-primary mx-2">Approve</button>
+                  <td><button onClick={() => updateStatus(a._id, "Approved")} className="approve btn btn-sm btn-primary mx-2">Approve</button>
                     <button className="approve btn btn-sm btn-primary ">Reject</button></td>
                 </tr>
               )

@@ -11,7 +11,6 @@ export default function Register() {
     const [gender, setGender] = useState('M')
     const [branch, setBranch] = useState('IT')
 
-
     //#region refs
     const nameRef = useRef()
     const dobRef = useRef()
@@ -55,6 +54,7 @@ export default function Register() {
         })
         .catch(err => updateError(err))
     }
+
     
     return (
         // Extra fields add karvi pdse register ma! Me mokli e  

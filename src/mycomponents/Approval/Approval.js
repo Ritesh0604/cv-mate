@@ -149,8 +149,8 @@ export default function Approval() {
     }
 
     const onSubmit = async () => {
-        const facultyData = await fetch("http://localhost:5000/faculty/get_faculty_details", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({id:faculty})}).then(res => { return res.json() })
-
+        const facultyData = await fetch("http://localhost:5000/faculty/get_faculty_name", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({id:faculty})}).then(res => { return res.json() })
+        console.log(loginCtx.userData)
         const achievementData = {
             title: titleRef.current.value,
             major_activity: majorActivity,
@@ -159,9 +159,10 @@ export default function Approval() {
             level: levelRef.current.value,
             winner: winnerRef.current.value==="Yes"?true:false,
             faculty_id: faculty,
-            faculty_name: facultyData.name
+            faculty_name: facultyData,
+            status: "Pending",
+            enrollment_number: loginCtx.userData.enrollment_number
         }
-        console.log(achievementData)
         achievementData.enrollment_number = loginCtx.userData.enrollment_number
         const id = currentActivity.id
         const extraData = activityCtx.subActivityExtra[id]

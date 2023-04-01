@@ -8,7 +8,6 @@ export default function Login() {
     const [user, setuser] = useState("Student")
 
     const navigate = useNavigate()
-    console.log(user)
     // there is a lag switching between student and faculty
 
     const enrNoRef = useRef()
@@ -39,8 +38,7 @@ export default function Login() {
             })
             .then(res => {
                 // store id in local
-                console.log(res)
-                localStorage.setItem("id", res._id.toString())
+                localStorage.setItem("id", res)
                 ctx.updateLoginStatus(true, user, res)
 
                 // redirect to home page
@@ -71,16 +69,15 @@ export default function Login() {
                 return response.json()
             })
             .then(res => {
-                console.log(res)
                 // store id in local
-                localStorage.setItem("id", res.id)
+                localStorage.setItem("id", res.token)
                 ctx.updateLoginStatus(true, user, res)
 
                 // redirect to home page
                 navigate('/profile')
             })
             .catch(err => {
-                // alert(err)
+                alert(err)
             })
     }
 

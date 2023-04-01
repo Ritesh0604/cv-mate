@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Profile.css';
 
 import Achivement from '../Achievement/Achievement';
 import Approval from '../Approval/Approval';
 import ViewProfile from './ViewProfile';
 import Browse from '../Browse/Browse';
+import login_status from '../../store/login_status';
 
 export default function Profile(){
     const [state, updateState] = useState('Profile')
-
+    const loginCtx = useContext(login_status)
 
     return(
         <div className="profile-container">
@@ -29,6 +30,7 @@ export default function Profile(){
                     <li onClick={() => updateState("Achievement")} className={"point left-list list-group-item list-group-item-action  " + (state=="Achievement"&&"active")}>Achievement</li>
                     <li onClick={() => updateState("Approval")} className={"point left-list list-group-item list-group-item-action  " + (state=="Approval"&&"active")}>Approval</li>
                     <li onClick={() => updateState("Browse")}className={"point left-list list-group-item list-group-item-action " + (state=="Browse"&&"active")}>Browse</li>
+                    <li onClick={() => loginCtx.logOut()} className="point left-list list-group-item list-group-item-action">Log Out</li>
                   </ul>
                   </div>
              </div>         
