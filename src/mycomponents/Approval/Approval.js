@@ -1,13 +1,39 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import ActivityFormContext from '../../store/activity_form';
 import './Approval.css';
+import api_store from '../../store/api_store';
+import login_status from '../../store/login_status';
 
 export default function Approval() {
     const activityCtx = useContext(ActivityFormContext)
+    const apiCtx = useContext(api_store)
+    const loginCtx = useContext(login_status)
+
     const [majorActivity, setMajorActivity] = useState("")
     const [subActivity, setSubActivity] = useState([])
     const [currentActivity, setCurrentActivity] = useState("")
+    const [faculty, setFaculty] = useState("")
 
+    const descriptionRef = useRef()
+    const levelRef = useRef()
+    const winnerRef = useRef()
+    const titleRef = useRef()
+
+    const [facultiesData,addFacultyData] = useState([])
+
+    useEffect(() => {
+        fetchFacultyData()
+    }, [addFacultyData])
+
+    const fetchFacultyData = async () => {
+        const data = await fetch("http://localhost:5000/faculty/get_all")
+        .then(response => {
+            return response.json()
+        })
+
+        setFaculty(data[0]._id)
+        addFacultyData(data)
+    }
 
     const activityList = [
         {
@@ -24,14 +50,22 @@ export default function Approval() {
                 },
                 // "Group Discussion",
                 {
+                    id: 0,
                     name: "Technical Quiz",
-                    view: activityCtx.TechnicalQuize
+                    view: activityCtx.TechnicalQuize,
+                    extra: {
+                        points_earned: activityCtx.p_earnedRef,
+                    }
                 },
                 // "Aptitude / Reasoning",
                 // "Tech-Fest",
-                { 
+                {
+                    id: 1,
                     name:"Workshop",
-                    view: activityCtx.Workshop
+                    view: activityCtx.Workshop,
+                    extra: {
+                        skill: activityCtx.skillRef
+                    }
                 },
                 // "STTP",
                 // "MOOC With Final Assessment",
@@ -39,13 +73,20 @@ export default function Approval() {
                 // "Paper Presentation",
                 // "Poster",
                 {
+                    id: 2,
                     name: "Training / Internship / Professional Certification",
-                    view: activityCtx.Internship
+                    view: activityCtx.Internship,
+                    extra: {
+                        role: activityCtx.role,
+                        sDate: activityCtx.sDate,
+                        eDate: activityCtx.eDate
+                    }
                 }
                 // "Project (Non Curricullar)",
                 // "Industrial / Exhibition Visit With Report",
                 // "Consultancy Projects"
-            ]
+            ],
+            
         },
         {
             major: "Sports And Cultural",
@@ -98,7 +139,6 @@ export default function Approval() {
             ]
         },
     ]
-
     const updateActivities = (value) => {
         setMajorActivity(value)
         activityList.map(activityList => {
@@ -106,6 +146,30 @@ export default function Approval() {
                 setSubActivity(activityList.sub)
             }
         })
+    }
+
+    const onSubmit = async () => {
+        const facultyData = await fetch("http://localhost:5000/faculty/get_faculty_details", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({id:faculty})}).then(res => { return res.json() })
+
+        const achievementData = {
+            title: titleRef.current.value,
+            major_activity: majorActivity,
+            sub_activity: currentActivity.name,
+            description: descriptionRef.current.value,
+            level: levelRef.current.value,
+            winner: winnerRef.current.value==="Yes"?true:false,
+            faculty_id: faculty,
+            faculty_name: facultyData.name
+        }
+        console.log(achievementData)
+        achievementData.enrollment_number = loginCtx.userData.enrollment_number
+        const id = currentActivity.id
+        const extraData = activityCtx.subActivityExtra[id]
+        const data = {
+            data: achievementData,
+            extraData: extraData
+        }
+        apiCtx.addAchievement(data)
     }
 
 
@@ -117,7 +181,7 @@ export default function Approval() {
                 </div>
                 <div className="dropdown col-7">
 
-                    <select onChange={e => updateActivities(e.target.value)} className="btn btn-secondary col-7" name="m-activity" id="m-activity">
+                    <select onChange={e => updateActivities(e.currentTarget.value)} className="btn btn-secondary col-7" name="m-activity" id="m-activity">
                         {
                             activityList.map(activity => {
                                 return <option value={activity.major} >{activity.major}</option>
@@ -133,7 +197,12 @@ export default function Approval() {
                 </div>
 
                 <div className="dropdown col-7 ">
-                    <select onChange={e => setCurrentActivity(e.currentTarget.value)} className="btn btn-secondary col-7 " name="s-activity" id="s-activity">
+                    <select onChange={e => {
+                        subActivity.map(activity => {
+                            if (activity.name === e.target.value)
+                                setCurrentActivity(activity)
+                        })
+                    }} className="btn btn-secondary col-7 " name="s-activity" id="s-activity">
                         {
                             subActivity.map(activity => {
                                 return <option >{activity.name}</option>
@@ -147,40 +216,32 @@ export default function Approval() {
 
             <div className="row">
             {
-                subActivity.map(e => {
-                    if (e.name === currentActivity){
-                        return e.view
-                    }
-                })
+                currentActivity.view
             }
             </div>
 
             <div className='row'>
                 <div className="col-4">
+                    <label htmlFor="description" className="form-label">Title :</label>
+                </div>
+                <div className="col-8">
+                    <input ref={titleRef} type='text' className="form-control col-8" id="title" rows="3"></input>
+                </div>
+            </div>
+            <div className='row'>
+                <div className="col-4">
                     <label htmlFor="description" className="form-label">Description :</label>
                 </div>
                 <div className="col-8">
-                    <textarea className="form-control col-8" id="description" rows="3"></textarea>
+                    <textarea ref={descriptionRef} className="form-control col-8" id="description" rows="3"></textarea>
                 </div>
             </div>
-                <div className="input-group row">
-                    <div className="col-4">
-                        Event date :
-                    </div>
-                    <div className="col-6">
-                        <div className="form-floating mt-2">
-                            <input type="date" className="form-control col-6" name="e-date" id="date" />
-                            <label htmlFor="e-date"></label>
-                        </div>
-                    </div>
-                </div>
-
                 <div className="row">
                     <div className="level col-4">
                         level :
                     </div>
                     <div className="dropdown col-8">
-                        <select className="btn btn-secondary col-8" name="level" id="level">
+                        <select ref={levelRef} className="btn btn-secondary col-8" name="level" id="level">
                             <option value="Collage Level">Collage Level</option>
                             <option value="Zonal Level">Zonal Level</option>
                             <option value="State Level">State Level</option>
@@ -196,11 +257,26 @@ export default function Approval() {
                         Are you winner?
                     </div>
                     <div className="dropdown col-5 ">
-                        <select className="btn btn-secondary col-5" name="y-n" id="y-n">
+                        <select ref={winnerRef} className="btn btn-secondary col-5" name="y-n" id="y-n">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
 
-                            <option value="National">Yes</option>
-                            <option value="state">No</option>
-
+                <div className="row">
+                    <div className="col-4">
+                        Faculties
+                    </div>
+                    <div className="dropdown col-5 ">
+                        <select onChange={e => setFaculty(e.target.value)} className="btn btn-secondary col-5" name="faculties" id="faculties">
+                            {
+                                facultiesData.map(data => {
+                                    if (data.field === majorActivity){
+                                        return <option value={data._id}>{data.name}</option>
+                                    }
+                                })
+                            }
                         </select>
                     </div>
                 </div>
@@ -217,9 +293,7 @@ export default function Approval() {
                     </div>
                 </div>
                 <center>
-
-                    <button type="button" className="submit btn btn-primary mb-3 mt-4">Submit</button>
-
+                    <button onClick={onSubmit} type="button" className="submit btn btn-primary mb-3 mt-4">Submit</button>
                 </center>
 
             </div>

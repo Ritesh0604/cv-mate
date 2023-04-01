@@ -35,8 +35,9 @@ const ActivitiesForm = () => {
     const Internship = () => {
         return(
             <>
+            <div className="row">
                 <div className="col-4">
-                    <label htmlFor="description" className="form-label">Role</label>
+                    <label htmlFor="description" className="form-label  ">Role</label>
                 </div>
                 <div className="col-8">
                 <select className = "btn btn-secondary mx-4 col-8" name ="level" id="level"> 
@@ -47,22 +48,38 @@ const ActivitiesForm = () => {
                      <option value="Semester">Sales Manager</option>
                 </select>
                 </div>
-                <div>
-                    <div className="col-4">
-                        <label htmlFor="description" className="form-label">Start date</label>
+                </div>
+
+                
+               
+                <div className="input-group row">
+                    <div className="col-4 ">
+                        Start date:
                     </div>
-                    <div className="col-8">
-                        <input type="date" className="form-control col-8 " id="sdate" rows="3"/>
+                    <div className="col-6">
+                    <div className="form-floating mt-2 ">
+                        <input type="date" className="form-control col-6 "name="s-date" id="date"/>
+                        <label htmlFor="s-date"></label>
+                        
+                    </div>
                     </div>
                 </div>
-                <div>
+
+                
+                <div className="input-group row">
+                
                     <div className="col-4">
-                        <label htmlFor="description" className="form-label">End date</label>
+                    <div className="form-floating mt-2 ">
+                        
+                        
+                        End date:
+                        <input type="date" className="form-control col-6" id="date" name="ed-date"/>
+                        <label htmlFor="ed-date"></label>
                     </div>
-                    <div className="col-8">
-                        <input type="date" className="form-control col-8" id="edate" rows="3"/>
                     </div>
+                    
                 </div>
+                
             </>
         )
     }
