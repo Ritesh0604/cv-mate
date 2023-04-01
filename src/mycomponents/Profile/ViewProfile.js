@@ -1,4 +1,4 @@
-import './profile.css';
+import './Profile.css';
 const ViewProfile = () => {
     return (
         <div className="stsportal-container " >
@@ -8,16 +8,9 @@ const ViewProfile = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" style={{height:"10%",width:"10%"}} fill="currentColor" className="bi bi-person-fill" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                   </svg>
-                  </div>
-                 
-                  
-              
-              
-                 
-
-                  <div className="row pb-4 px-3">
+                  <div className="row mb-4 mx-3 pb-4">
                     <ul className="list-group list-group-horizontal">
-                        <li className="list-group-item col-3">Enrollment No</li>
+                        <li className="list-group-item col-3 ">Enrollment No</li>
                         <li className="list-group-item col-9"></li>
         
                       </ul>
