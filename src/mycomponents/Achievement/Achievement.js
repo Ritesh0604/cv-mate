@@ -18,6 +18,7 @@ export default function Achivement(){
       setAchievementData(data)
     }
 
+
     return(
         <div className ="achievement-container">
         <table className="table">
