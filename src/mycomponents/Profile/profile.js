@@ -5,10 +5,15 @@ import Achivement from '../Achievement/Achievement';
 import Approval from '../Approval/Approval';
 import ViewProfile from './ViewProfile';
 import Browse from '../Browse/Browse';
+import Editprofile from './Editprofile';
 
 export default function Profile(){
     const [state, updateState] = useState('Profile')
+    const [profileState, updateProfileState] = useState("Edit")
 
+    const profileStateHandler = (state) => {
+      updateProfileState(state)
+    }
 
     return(
         <div className="profile-container">
@@ -36,9 +41,14 @@ export default function Profile(){
           
           <div className='items'>
           {
-            state === "Profile"
+            state === "Profile" && profileState === "View"
             &&
-            <ViewProfile />
+            <ViewProfile profileStateHandler={profileStateHandler}/>
+          }
+          {
+            state === "Profile" && profileState === "Edit"
+            &&
+            <Editprofile profileStateHandler={profileStateHandler}/>
           }
           {
             state === "Achievement"
