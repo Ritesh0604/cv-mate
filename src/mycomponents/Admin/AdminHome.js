@@ -8,7 +8,7 @@ export default function AdminHome() {
             <div class="d-grid gap-2 d-md-flex justify-content-md-end pt-3">
                 <Link to="http://localhost:3000/adminRegister"><button class="btn btn-danger" type="button" style={{background:"#90EE90"}}>Add</button></Link>
             </div>
-            <table className="table">
+            <table className="table"style={{width:"100vw"}}>
                 <thead>
                     <tr>
                         <th scope="col">SNo.</th>
