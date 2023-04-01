@@ -2,8 +2,10 @@ import './Profile.css';
 const ViewProfile = () => {
     return (
         <div className="stsportal-container " >
+            
                 <div className="px-3 mb-4 profile" style={{ boxShadow: "0px 6px 6px rgba(9, 9, 4, 0.57)", borderRadius: "5px"}}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="10%" height="10%" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                  <div className="row">
+                  <svg xmlns="http://www.w3.org/2000/svg" style={{height:"10%",width:"10%"}} fill="currentColor" className="bi bi-person-fill" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                   </svg>
                   <div className="row mb-4 mx-3 pb-4">
@@ -27,8 +29,19 @@ const ViewProfile = () => {
                         <li className="list-group-item col-9"></li>
                       </ul>
                   </div>
+
+                  <div className='row pb-3'>
+                  <div className='col justify-content-md-end d-grid gap-2 d-md-flex' >
+                    <button className='btn btn-success' type="button" style={{background:"#90EE90"}}>share</button>
+                  </div>
+
+                  <div className='col justify-content-md-end '>
+                    <button className='btn btn-success' type="button" style={{background:"#179fe7"}}>Edit</button>
+                  </div>
+                  </div>
                 </div>
-            </div>
+                </div>
+            
     )
 }
 

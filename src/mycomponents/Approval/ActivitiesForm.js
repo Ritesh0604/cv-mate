@@ -52,7 +52,7 @@ const ActivitiesForm = () => {
 
                 
                
-                <div className="input-group row">
+                <div className="input-group row mt-3">
                     <div className="col-4 ">
                         Start date:
                     </div>
@@ -69,15 +69,17 @@ const ActivitiesForm = () => {
                 <div className="input-group row">
                 
                     <div className="col-4">
-                    <div className="form-floating mt-2 ">
-                        
-                        
+                    
                         End date:
+                        </div>
+                        <div className="col-6">
+                    <div className="form-floating mt-2 ">
                         <input type="date" className="form-control col-6" id="date" name="ed-date"/>
                         <label htmlFor="ed-date"></label>
-                    </div>
+                    
                     </div>
                     
+                </div>
                 </div>
                 
             </>
