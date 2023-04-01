@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Profile.css';
+import './profile.css';
 
 import Achivement from '../Achievement/Achievement';
 import Approval from '../Approval/Approval';
