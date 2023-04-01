@@ -8,7 +8,7 @@ export default function Login() {
     const [user, setuser] = useState("Student")
 
     const navigate = useNavigate()
-
+    console.log(user)
     // there is a lag switching between student and faculty
 
     const enrNoRef = useRef()
@@ -71,6 +71,7 @@ export default function Login() {
                 return response.json()
             })
             .then(res => {
+                console.log(res)
                 // store id in local
                 localStorage.setItem("id", res.id)
                 ctx.updateLoginStatus(true, user, res)

@@ -10,7 +10,7 @@ export default function AdminHome() {
 
     useEffect(() => {
         if (loginCtx.isLoggedIn !== true || loginCtx.user !== "Admin")
-            navigate('/adminLogin')        
+            navigate('/adminLogin')
         fetchFacultyData()
     }, [facultyData])
 
@@ -54,12 +54,8 @@ export default function AdminHome() {
             <div class="d-grid gap-2 d-md-flex justify-content-md-end pt-3">
                 <Link to="http://localhost:3000/adminRegister"><button class="btn btn-danger" type="button" style={{background:"#90EE90"}}>Add</button></Link>
             </div>
-<<<<<<< HEAD
-            <table className="table"style={{width:"100vw"}}>
-=======
             <div className="table-admin">
             <table className="table">
->>>>>>> 97669b47994ef55fb50f5cba939df795d88027df
                 <thead>
                     <tr>
                         <th scope="col" className=' px-5'>SNo.</th>

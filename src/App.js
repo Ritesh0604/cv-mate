@@ -16,12 +16,13 @@ import Viewapproval from './mycomponents/Viewapproval/Viewapproval'
 import FacultyDashboard from './mycomponents/Faculty/FacultyDashboard';
 
 import React, { useState, useEffect, useContext } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import login_status from './store/login_status';
 
 function App() {
   const [val, updateVal] = useState("Ok")
   const ctx = useContext(login_status)
+
   useEffect(() => {
     // checking if data is already fetched
     try{
@@ -45,8 +46,31 @@ function App() {
       .then(response => {
         ctx.updateLoginStatus(true, "Student", response)
       })
-      .catch(err => {
-        alert(err)
+      .catch(async err => {
+        await fetch("http://localhost:5000/faculty/verify_id", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({id: id})
+        })
+        .then(response => {
+          if (!response.ok){
+            throw new Error("Error with auto-login")
+          }
+          else if (ctx.user !== "Faculty"){
+            // var link = document.createElement('a');
+            // link.href = "http://localhost:3000/login";
+            // document.body.appendChild(link);
+            // link.click();
+            window.history.pushState({},  "", "http://localhost:3000/login")
+          }
+          return response.json()
+        })
+        .then(resp => {
+          console.log(resp)
+          console.log(ctx.user)
+        })
+        .catch(err => {
+        })
       })
     }
     catch(err){
