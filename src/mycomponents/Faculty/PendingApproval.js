@@ -27,6 +27,8 @@ export default function PendingApproval() {
     fetchApproval()
   }, [addApproval])
 
+  console.log(approval)
+
   return (
     <div className="PendingApproval-container px-1">
       <table className="table">
