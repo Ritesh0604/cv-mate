@@ -14,6 +14,7 @@ import PendingApproval from './mycomponents/Faculty/PendingApproval'
 import ApprovedApproval from './mycomponents/Faculty/ApprovedApproval'
 import Viewapproval from './mycomponents/Viewapproval/Viewapproval'
 import FacultyDashboard from './mycomponents/Faculty/FacultyDashboard';
+import Editprofile from './mycomponents/Profile/Editprofile';
 
 import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -74,6 +75,7 @@ function App() {
         <Route path='viewapproval' element={<Viewapproval/>}></Route>
         <Route path='ViewProfile' element={<ViewProfile/>}></Route>
         <Route path='facultydashboard' element={<FacultyDashboard/>}></Route>
+        <Route path="editprofile" element={<Editprofile/>}></Route>
       </Routes>
 
     </BrowserRouter>
