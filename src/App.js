@@ -6,6 +6,7 @@ import AdminHome from './mycomponents/Admin/AdminHome'
 import Register from './mycomponents/Register/Register'
 import Profile from './mycomponents/Profile/profile'
 import ViewProfile from './mycomponents/Profile/ViewProfile'
+import ShareProfile from './mycomponents/Profile/ShareProfile'
 import Achievement from './mycomponents/Achievement/Achievement'
 import Approval from './mycomponents/Approval/Approval'
 import Browse from './mycomponents/Browse/Browse'
@@ -73,6 +74,7 @@ function App() {
         <Route path='browse' element={<Browse/>}></Route>
         <Route path='viewapproval' element={<Viewapproval/>}></Route>
         <Route path='ViewProfile' element={<ViewProfile/>}></Route>
+        <Route path='ShareProfile' element={<ShareProfile/>}></Route>
         <Route path='facultydashboard' element={<FacultyDashboard/>}></Route>
       </Routes>
 

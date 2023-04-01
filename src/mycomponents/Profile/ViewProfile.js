@@ -1,4 +1,4 @@
-import './profile.css';
+import './Profile.css';
 const ViewProfile = () => {
     return (
         <div className="stsportal-container " >
