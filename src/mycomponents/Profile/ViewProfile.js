@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './Profile.css';
+import './profile.css';
 
 const ViewProfile = () => {
     const [studentData, updateStudentData]=useState({})

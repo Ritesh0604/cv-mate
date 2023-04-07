@@ -1,20 +1,33 @@
-import './Profile.css'
+import './profile.css'
 
-export default function Editprofile()
+export default function Editprofile(props)
 { 
+    const { profileStateHandler } = props
 return (
-<div className="stsportal-container" style={{background:"white"}} >
+<div className="editprofile-container px-4" style={{background:"white"}} >
             
-                <div className="px-3 mb-4 profile" style={{ boxShadow: "0px 6px 6px rgba(9, 9, 4, 0.57)", borderRadius: "5px"}}>
+                <div className="px-3 mb-4 editprofile" style={{ boxShadow: "0px 6px 6px rgba(9, 9, 4, 0.57)", borderRadius: "5px"}}>
                   <div className="row">
-                  <svg xmlns="http://www.w3.org/2000/svg" style={{height:"10%",width:"10%"}} fill="currentColor" className="bi bi-person-fill" viewBox="0 0 16 16">
+                  <div className="d-flex justify-content-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg"  style={{width:"50px",height:"50px"}}fill="currentColor" className="bi bi-person-fill" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                   </svg>
+        
+                    </div>
+                      <div className="d-flex justify-content-center">
+        <div className="btn  btn-rounded" style={{backgroundColor:"#3445CA"}}>
+            <label className="form-label text-white m-1" htmlFor="customFile2" >Choose file</label>
+            <input type="file" className="form-control d-none" id="customFile2" />
+        </div>
+    </div>
+
+                 
                   </div>
                  
+          
+    
+    
                   
-              
-              
                  
 
                   <div className="row pb-4 px-3">
@@ -56,17 +69,23 @@ return (
                         </div>
                        
                       </div>
-
+                
                       
-<div className="input-group mb-3">
-
-  <input type="text" className="form-control" id="basic-url" aria-describedby="basic-addon3"/>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon3">LinkedIN URL</span>
+  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"/>
 </div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon3">GitHub URL</span>
+  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"/>
+</div>               
+
                   
 
                   <div className='row pb-3'>
                   <div className='col justify-content-md-end d-grid gap-2 d-md-flex' >
-                    <button className='btn btn-success' type="button" style={{background:"#ee4a2a"}}>cancel</button>
+                    <button onClick={() => profileStateHandler("View")}  className='btn btn-success' type="button" style={{background:"#ee4a2a"}}>cancel</button>
                   </div>
 
                   <div className='col justify-content-md-end '>

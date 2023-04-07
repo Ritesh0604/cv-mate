@@ -72,7 +72,6 @@ export default function Login() {
                 // store id in local
                 localStorage.setItem("id", res.token)
                 ctx.updateLoginStatus(true, user, res)
-
                 // redirect to home page
                 navigate('/profile')
             })

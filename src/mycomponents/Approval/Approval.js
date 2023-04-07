@@ -150,7 +150,7 @@ export default function Approval() {
 
     const onSubmit = async () => {
         const facultyData = await fetch("http://localhost:5000/faculty/get_faculty_name", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({id:faculty})}).then(res => { return res.json() })
-        console.log(loginCtx.userData)
+        console.log(loginCtx.userData._doc)
         const achievementData = {
             title: titleRef.current.value,
             major_activity: majorActivity,
@@ -161,7 +161,7 @@ export default function Approval() {
             faculty_id: faculty,
             faculty_name: facultyData,
             status: "Pending",
-            enrollment_number: loginCtx.userData.enrollment_number
+            enrollment_number: loginCtx.userData._doc.enrollment_number
         }
         achievementData.enrollment_number = loginCtx.userData.enrollment_number
         const id = currentActivity.id
